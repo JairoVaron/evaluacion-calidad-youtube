@@ -1,0 +1,179 @@
+/* =========================================================
+   CARDS.CSS
+   Tarjetas inspiradas en las miniaturas y tarjetas de video
+   de YouTube: bloque de "miniatura" + fila de metadatos.
+   ========================================================= */
+
+.card {
+    border-radius: var(--radius-lg) !important;
+    box-shadow: var(--shadow-card);
+    transition: box-shadow var(--transition-base), transform var(--transition-base);
+}
+
+.card.model-card:hover,
+.card.video-card:hover {
+    box-shadow: var(--shadow-card-hover);
+    transform: translateY(-3px);
+}
+
+/* ---------- Tarjeta tipo "video" con miniatura de icono ---------- */
+.video-card {
+    overflow: hidden;
+}
+
+.video-thumb {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--yt-black) 0%, #2b2b2b 100%);
+    color: var(--yt-white);
+    font-size: 2.4rem;
+}
+
+.video-thumb .duration-badge {
+    position: absolute;
+    right: 8px;
+    bottom: 8px;
+    background: rgba(0, 0, 0, 0.8);
+    color: var(--yt-white);
+    font-family: var(--font-data);
+    font-size: 0.72rem;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.video-meta {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    padding: 14px 16px 16px;
+}
+
+.video-meta .video-avatar {
+    flex: 0 0 auto;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--yt-red-wash);
+    color: var(--yt-red);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+}
+
+.video-meta h5 {
+    font-size: 0.98rem;
+    margin-bottom: 2px;
+}
+
+.video-meta .video-sub {
+    font-size: 0.82rem;
+    color: var(--yt-gray-600);
+    margin-bottom: 0;
+}
+
+/* ---------- Tarjeta de característica del modelo (grid 8 items) ---------- */
+.model-card .model-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.model-card .model-index {
+    font-family: var(--font-data);
+    font-size: 0.72rem;
+    color: var(--yt-gray-400);
+    letter-spacing: 0.04em;
+}
+
+/* ---------- Chips de "En YouTube:" dentro de las tarjetas del modelo ---------- */
+.in-youtube-tag {
+    display: inline-block;
+    background: var(--yt-gray-100);
+    border-radius: var(--radius-sm);
+    padding: 8px 12px;
+    font-size: 0.82rem;
+    color: var(--yt-gray-900);
+}
+
+.in-youtube-tag strong {
+    color: var(--yt-red-dark);
+}
+
+/* ---------- Tarjeta oscura sobre fondo negro (sección modelo de calidad) ---------- */
+.bg-dark .card {
+    box-shadow: none;
+}
+
+/* ---------- Fila de encabezado de sección (estilo "feed" de YouTube) ---------- */
+.feed-row-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 1.25rem;
+}
+
+.feed-row-header h2 {
+    margin-bottom: 0;
+}
+
+.feed-row-header a {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--yt-red-dark);
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.feed-row-header a:hover {
+    text-decoration: underline;
+}
+
+/* ---------- Tarjeta compacta tipo "video corto" para el feed del inicio ---------- */
+.mini-card {
+    text-decoration: none;
+    display: block;
+    color: inherit;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: var(--yt-white);
+    border: 1px solid var(--yt-gray-200);
+    transition: box-shadow var(--transition-base), transform var(--transition-base);
+}
+
+.mini-card:hover {
+    box-shadow: var(--shadow-card-hover);
+    transform: translateY(-3px);
+    color: inherit;
+}
+
+.mini-card .video-thumb {
+    aspect-ratio: 16 / 10;
+    font-size: 1.9rem;
+}
+
+.mini-card .mini-card-body {
+    padding: 12px 14px 14px;
+}
+
+.mini-card .mini-card-eyebrow {
+    font-family: var(--font-data);
+    font-size: 0.7rem;
+    color: var(--yt-gray-600);
+    margin-bottom: 2px;
+    display: block;
+}
+
+.mini-card h3 {
+    font-size: 0.95rem;
+    margin-bottom: 0;
+}

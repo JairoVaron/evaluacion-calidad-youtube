@@ -1,0 +1,82 @@
+/* =====================================================
+   MINIATURAS DEL FEED - ISO/IEC 25010
+   Diseño inspirado en las miniaturas de YouTube
+===================================================== */
+
+/* Contenedor de la miniatura */
+.video-thumb {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: 10px;
+    background: #f1f1f1;
+}
+
+/* Imagen de la miniatura */
+.video-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+/* Pequeño zoom al pasar el mouse */
+.mini-card:hover .video-thumb img {
+    transform: scale(1.04);
+}
+
+/* Oscurecimiento ligero al pasar el mouse */
+.video-thumb::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0);
+    transition: background 0.3s ease;
+    pointer-events: none;
+}
+
+.mini-card:hover .video-thumb::after {
+    background: rgba(0, 0, 0, 0.08);
+}
+
+/* Texto de duración / cantidad de preguntas */
+.duration-badge {
+    position: absolute;
+    right: 8px;
+    bottom: 8px;
+    z-index: 2;
+
+    padding: 4px 7px;
+
+    background: rgba(0, 0, 0, 0.85);
+    color: white;
+
+    font-size: 0.75rem;
+    font-weight: 600;
+
+    border-radius: 4px;
+    line-height: 1;
+}
+
+/* Evita que las imágenes deformen la tarjeta */
+.mini-card {
+    display: block;
+    text-decoration: none;
+}
+
+/* En pantallas pequeñas */
+@media (max-width: 576px) {
+
+    .video-thumb {
+        aspect-ratio: 16 / 9;
+        border-radius: 8px;
+    }
+
+    .duration-badge {
+        font-size: 0.7rem;
+        padding: 4px 6px;
+    }
+}

@@ -1,0 +1,82 @@
+/* =========================================================
+   BASE.CSS
+   Reinicio ligero, tipografía y estilos generales del documento.
+   ========================================================= */
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: calc(var(--nav-height) + 12px);
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--yt-gray-900);
+    background-color: var(--yt-gray-50);
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: var(--yt-black);
+    letter-spacing: -0.01em;
+}
+
+h1 { font-size: var(--fs-h1); line-height: 1.08; }
+h2 { font-size: var(--fs-h2); line-height: 1.15; }
+h3 { font-size: var(--fs-h3); line-height: 1.25; }
+
+p {
+    color: var(--yt-gray-600);
+    line-height: 1.65;
+}
+
+a {
+    color: inherit;
+}
+
+/* Visible focus outline — accesibilidad de teclado */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+.btn:focus-visible {
+    outline: 2px solid var(--yt-red);
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+::selection {
+    background: var(--yt-red);
+    color: var(--yt-white);
+}
+
+/* ---------- Etiquetas de sección (reemplazan al eyebrow plano) ---------- */
+.section-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 14px;
+    border-radius: var(--radius-pill);
+    background: var(--yt-red-wash);
+    color: var(--yt-red-dark);
+    font-weight: 600;
+    font-size: var(--fs-small);
+    letter-spacing: 0.01em;
+}
+
+.section-tag.section-tag--dark {
+    background: rgba(255, 255, 255, 0.08);
+    color: #ff5c5c;
+}
+
+/* ---------- Contenedor de ancho consistente para lectura ---------- */
+.text-measure {
+    max-width: 62ch;
+}
+
+/* ---------- Divisor sutil tipo YouTube ---------- */
+hr.yt-divider {
+    border: none;
+    border-top: 1px solid var(--yt-gray-200);
+    margin: 2.5rem 0;
+}

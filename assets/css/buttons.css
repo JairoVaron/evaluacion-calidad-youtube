@@ -1,0 +1,54 @@
+/* =========================================================
+   BUTTONS.CSS
+   Botones estilo "suscribirse" de YouTube: píldora, sólidos
+   y de contorno.
+   ========================================================= */
+
+.btn {
+    border-radius: var(--radius-pill);
+    font-weight: 600;
+    padding-inline: 1.4rem;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast), background-color var(--transition-fast);
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.btn-danger {
+    background-color: var(--yt-red);
+    border-color: var(--yt-red);
+}
+
+.btn-danger:hover,
+.btn-danger:focus {
+    background-color: var(--yt-red-dark);
+    border-color: var(--yt-red-dark);
+}
+
+.btn-outline-dark {
+    border-color: var(--yt-gray-900);
+    color: var(--yt-gray-900);
+}
+
+.btn-outline-dark:hover {
+    background-color: var(--yt-gray-900);
+    border-color: var(--yt-gray-900);
+}
+
+.btn-outline-light {
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.btn-outline-light:hover {
+    background-color: var(--yt-white);
+    color: var(--yt-black);
+}
+
+.btn-lg {
+    padding: 0.75rem 1.9rem;
+}
+
+.btn i {
+    margin-right: 6px;
+}

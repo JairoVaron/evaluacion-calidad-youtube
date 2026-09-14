@@ -1,0 +1,123 @@
+/* =========================================================
+   HERO.CSS (banner de canal)
+   Portada de index.html con tratamiento de "página de canal"
+   de YouTube: banner + avatar + metadatos + acciones.
+   ========================================================= */
+
+.channel-banner {
+    background:
+        radial-gradient(900px 260px at 15% 0%, rgba(255, 255, 255, 0.10), transparent 60%),
+        linear-gradient(120deg, #1a1a1a 0%, var(--yt-black) 55%, #2b0000 100%);
+    color: var(--yt-white);
+    padding-top: 3rem;
+    padding-bottom: 4.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.channel-banner::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        repeating-linear-gradient(135deg, rgba(255, 0, 0, 0.06) 0px, rgba(255, 0, 0, 0.06) 2px, transparent 2px, transparent 42px);
+    pointer-events: none;
+}
+
+.channel-banner .container {
+    position: relative;
+}
+
+.channel-avatar {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    background: var(--yt-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.15);
+    flex-shrink: 0;
+    padding: 10px;
+}
+
+.channel-avatar img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.channel-name {
+    font-size: clamp(1.6rem, 1.3rem + 1.4vw, 2.5rem);
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: var(--yt-white);
+}
+
+.channel-meta {
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 0.9rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 10px;
+    align-items: center;
+}
+
+.channel-meta .dot::before {
+    content: "•";
+    margin-right: 10px;
+    color: rgba(255, 255, 255, 0.35);
+}
+
+.channel-tagline {
+    color: rgba(255, 255, 255, 0.75);
+    max-width: 46ch;
+    margin-top: 10px;
+}
+
+.channel-actions {
+    margin-top: 1.25rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* ---------- Estadísticas tipo "metadata" ---------- */
+.channel-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem 2rem;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    font-family: var(--font-data);
+}
+
+.channel-stats .stat strong {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--yt-white);
+}
+
+.channel-stats .stat span {
+    font-size: 0.78rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* ---------- Un único momento de entrada orquestado ---------- */
+@keyframes yt-fade-up {
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.channel-banner > .container > * {
+    animation: yt-fade-up 0.6s ease both;
+}

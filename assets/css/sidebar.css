@@ -1,0 +1,131 @@
+/* =========================================================
+   SIDEBAR.CSS
+   Menú lateral izquierdo, tipo barra de navegación de
+   YouTube. Fijo en escritorio, deslizable en móvil.
+   ========================================================= */
+
+.yt-layout {
+    display: flex;
+    align-items: flex-start;
+    min-height: calc(100vh - var(--nav-height));
+}
+
+.yt-sidebar {
+    width: var(--sidebar-width);
+    flex-shrink: 0;
+    background: var(--yt-white);
+    padding: 12px 8px 40px;
+    position: sticky;
+    top: var(--nav-height);
+    height: calc(100vh - var(--nav-height));
+    overflow-y: auto;
+    border-right: 1px solid var(--yt-gray-200);
+}
+
+.yt-sidebar-group + .yt-sidebar-group {
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid var(--yt-gray-200);
+}
+
+.yt-sidebar-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--yt-gray-600);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 10px 12px 4px;
+}
+
+.yt-sidebar-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 10px 12px;
+    border-radius: var(--radius-sm);
+    color: var(--yt-gray-900);
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 500;
+    margin-bottom: 2px;
+    transition: background-color var(--transition-fast);
+}
+
+.yt-sidebar-item i {
+    font-size: 1.2rem;
+    width: 24px;
+    text-align: center;
+    color: var(--yt-gray-900);
+    flex-shrink: 0;
+}
+
+.yt-sidebar-item:hover {
+    background-color: var(--yt-gray-100);
+    color: var(--yt-gray-900);
+}
+
+.yt-sidebar-item.is-active {
+    background-color: var(--yt-red-wash);
+    color: var(--yt-red-dark);
+    font-weight: 700;
+}
+
+.yt-sidebar-item.is-active i {
+    color: var(--yt-red-dark);
+}
+
+.yt-sidebar-note {
+    padding: 14px 12px 4px;
+    font-size: 0.76rem;
+    color: var(--yt-gray-600);
+    line-height: 1.5;
+}
+
+/* ---------- Fondo oscuro para cerrar el menú en móvil ---------- */
+.yt-sidebar-backdrop {
+    display: none;
+}
+
+/* =========================================================
+   COMPORTAMIENTO RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 991.98px) {
+
+    .yt-sidebar {
+        position: fixed;
+        left: 0;
+        top: var(--nav-height);
+        height: calc(100vh - var(--nav-height));
+        width: 260px;
+        transform: translateX(-100%);
+        transition: transform var(--transition-base);
+        z-index: 1050;
+        box-shadow: var(--shadow-card-hover);
+    }
+
+    .yt-sidebar.is-open {
+        transform: translateX(0);
+    }
+
+    .yt-sidebar-backdrop {
+        display: block;
+        position: fixed;
+        inset: var(--nav-height) 0 0 0;
+        background: rgba(0, 0, 0, 0);
+        pointer-events: none;
+        transition: background-color var(--transition-base);
+        z-index: 1040;
+    }
+
+    .yt-sidebar-backdrop.is-open {
+        background: rgba(0, 0, 0, 0.5);
+        pointer-events: auto;
+    }
+
+}
+
+.yt-main {
+    flex: 1 1 auto;
+    min-width: 0;
+}

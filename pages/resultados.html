@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Resultados | YouTube Quality</title>
+    <link rel="icon" type="image/webp" href="/assets/img/logo-icono.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Bootstrap -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <!-- Bootstrap Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    >
+
+    <!-- CSS propio -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body data-base="../">
+
+    <!-- =========================================================
+         BARRA SUPERIOR
+    ========================================================== -->
+    <nav class="yt-navbar">
+
+        <div class="yt-navbar-left">
+            <button class="yt-hamburger" type="button" data-sidebar-toggle aria-label="Abrir menú" aria-controls="ytSidebar">
+                <i class="bi bi-list"></i>
+            </button>
+
+            <a class="yt-brand" href="../index.html">
+                <span class="yt-play-icon"><i class="bi bi-play-fill"></i></span>
+                <span>
+                    YouTube Quality
+                    <span class="yt-brand-sub">Evaluación ISO/IEC 25010</span>
+                </span>
+            </a>
+        </div>
+
+        <div class="yt-navbar-center">
+            <form class="yt-search-form" id="ytSearchForm" role="search">
+                <input type="text" class="yt-search-input" id="ytSearchInput"
+                    placeholder="Buscar en el proyecto (modelo, evaluación, resultados...)" autocomplete="off">
+                <button type="submit" class="yt-search-btn" aria-label="Buscar">
+                    <i class="bi bi-search"></i>
+                </button>
+            </form>
+            <div class="yt-search-suggestions" id="ytSearchSuggestions"></div>
+        </div>
+
+        <div class="yt-navbar-right">
+            <button class="yt-icon-btn" type="button" aria-label="Aplicaciones">
+                <i class="bi bi-grid-3x3-gap"></i>
+            </button>
+            <button class="yt-icon-btn" type="button" aria-label="Notificaciones">
+                <i class="bi bi-bell"></i>
+            </button>
+            <div class="yt-avatar" title="Proyecto académico">YQ</div>
+        </div>
+
+    </nav>
+
+
+    <!-- =========================================================
+         LAYOUT: SIDEBAR + CONTENIDO
+    ========================================================== -->
+    <div class="yt-layout">
+
+        <aside class="yt-sidebar" id="ytSidebar">
+
+            <div class="yt-sidebar-group">
+                <a href="../index.html" class="yt-sidebar-item">
+                    <i class="bi bi-house-fill"></i> Inicio
+                </a>
+            </div>
+
+            <div class="yt-sidebar-group">
+                <div class="yt-sidebar-label">Proyecto</div>
+
+                <a href="modelo.html" class="yt-sidebar-item">
+                    <i class="bi bi-diagram-3"></i> Modelo de calidad
+                </a>
+                <a href="evaluacion.html" class="yt-sidebar-item">
+                    <i class="bi bi-clipboard-check"></i> Evaluación
+                </a>
+                <a href="resultados.html" class="yt-sidebar-item is-active">
+                    <i class="bi bi-bar-chart-fill"></i> Resultados
+                </a>
+                <a href="conclusiones.html" class="yt-sidebar-item">
+                    <i class="bi bi-award"></i> Conclusiones
+                </a>
+            </div>
+
+            <div class="yt-sidebar-group">
+                <div class="yt-sidebar-note">
+                    <i class="bi bi-mortarboard-fill text-danger"></i>
+                    Proyecto académico de Ingeniería de Software.
+                    Modelo ISO/IEC 25010 aplicado a YouTube.
+                </div>
+            </div>
+
+        </aside>
+
+        <div class="yt-sidebar-backdrop" id="ytSidebarBackdrop"></div>
+
+
+        <main class="yt-main">
+
+    <!-- =========================================================
+         ENCABEZADO
+    ========================================================== -->
+    <header class="py-5 bg-light border-bottom">
+
+        <div class="container text-center">
+
+            <!-- IMAGEN:
+                 Colocar aquí el logo de YouTube.
+                 Archivo sugerido:
+                 ../assets/img/youtube-logo.png
+            -->
+
+            <div class="mb-3">
+                <i class="bi bi-bar-chart-fill text-danger display-4"></i>
+            </div>
+
+            <span class="section-tag">
+                <i class="bi bi-trophy-fill"></i>
+                Resultados de la evaluación
+            </span>
+
+            <h1 class="mt-3">
+                Resultados de YouTube
+            </h1>
+
+            <p class="lead text-muted mx-auto" style="max-width: 800px;">
+                Resultados obtenidos mediante la aplicación del modelo
+                de calidad ISO/IEC 25010.
+            </p>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================================================
+         CONTENIDO PRINCIPAL
+    ========================================================== -->
+    <div class="container py-5">
+
+
+        <!-- =====================================================
+             AVISO INICIAL
+        ====================================================== -->
+        <div id="mensajeSinResultados" class="alert text-center p-4 p-md-5">
+
+            <i class="bi bi-info-circle-fill me-2"></i>
+
+            <strong>Aún no hay resultados.</strong>
+
+            <p class="mb-3 mt-2">
+                Primero debes completar el cuestionario de evaluación
+                para poder visualizar los resultados.
+            </p>
+
+            <a href="evaluacion.html" class="btn btn-danger">
+                <i class="bi bi-clipboard-check me-2"></i>
+                Realizar evaluación
+            </a>
+
+        </div>
+
+
+        <!-- =====================================================
+             RESUMEN GENERAL
+        ====================================================== -->
+        <section id="seccionResultados" style="display: none;">
+
+            <div class="row g-4 mb-5">
+
+                <!-- Puntuación general -->
+                <div class="col-md-4">
+
+                    <div class="card h-100 shadow-sm border-0">
+
+                        <div class="card-body text-center p-4">
+
+                            <i class="bi bi-star-fill text-warning display-5"></i>
+
+                            <h5 class="mt-3">
+                                Puntuación general
+                            </h5>
+
+                            <div
+                                id="resultadoGlobal"
+                                class="display-3 fw-bold text-danger"
+                            >
+                                0.0
+                            </div>
+
+                            <p class="text-muted mb-0">
+                                De 5.0 puntos
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Porcentaje -->
+                <div class="col-md-4">
+
+                    <div class="card h-100 shadow-sm border-0">
+
+                        <div class="card-body text-center p-4">
+
+                            <i class="bi bi-percent text-danger display-5"></i>
+
+                            <h5 class="mt-3">
+                                Calidad general
+                            </h5>
+
+                            <div
+                                id="resultadoPorcentaje"
+                                class="display-3 fw-bold text-danger"
+                            >
+                                0%
+                            </div>
+
+                            <p class="text-muted mb-0">
+                                Resultado de la evaluación
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Interpretación -->
+                <div class="col-md-4">
+
+                    <div class="card h-100 shadow-sm border-0">
+
+                        <div class="card-body text-center p-4">
+
+                            <i class="bi bi-check-circle-fill text-success display-5"></i>
+
+                            <h5 class="mt-3">
+                                Interpretación
+                            </h5>
+
+                            <div
+                                id="resultadoInterpretacion"
+                                class="fs-3 fw-bold text-success"
+                            >
+                                -
+                            </div>
+
+                            <p class="text-muted mb-0">
+                                Nivel de calidad
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 TABLA DE RESULTADOS
+            ================================================== -->
+            <section class="mb-5">
+
+                <div class="card shadow-sm border-0">
+
+                    <div class="card-header bg-danger text-white py-3">
+
+                        <h2 class="h4 mb-0">
+                            <i class="bi bi-table me-2"></i>
+                            Resultados por característica
+                        </h2>
+
+                    </div>
+
+                    <div class="card-body p-0">
+
+                        <div class="table-responsive">
+
+                            <table class="table table-hover table-bordered mb-0 align-middle">
+
+                                <thead class="table-dark">
+
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Característica</th>
+                                        <th>Puntuación</th>
+                                        <th>Porcentaje</th>
+                                        <th>Interpretación</th>
+                                    </tr>
+
+                                </thead>
+
+                                <tbody>
+
+                                    <tr>
+                                        <td>1</td>
+
+                                        <td>
+                                            <i class="bi bi-check2-square text-danger me-2"></i>
+                                            Adecuación funcional
+                                        </td>
+
+                                        <td id="puntajeFuncionalidad">
+                                            0.0 / 5
+                                        </td>
+
+                                        <td id="porcentajeFuncionalidad">
+                                            0%
+                                        </td>
+
+                                        <td id="interpretacionFuncionalidad">
+                                            -
+                                        </td>
+                                    </tr>
+
+
+                                    <tr>
+                                        <td>2</td>
+
+                                        <td>
+                                            <i class="bi bi-speedometer2 text-danger me-2"></i>
+                                            Eficiencia de rendimiento
+                                        </td>
+
+                                        <td id="puntajeRendimiento">
+                                            0.0 / 5
+                                        </td>
+
+                                        <td id="porcentajeRendimiento">
+                                            0%
+                                        </td>
+
+                                        <td id="interpretacionRendimiento">
+                                            -
+                                        </td>
+                                    </tr>
+
+
+                                    <tr>
+                                        <td>3</td>
+
+                                        <td>
+                                            <i class="bi bi-layers text-danger me-2"></i>
+                                            Compatibilidad
+                                        </td>
+
+                                        <td id="puntajeCompatibilidad">
+                                            0.0 / 5
+                                        </td>
+
+                                        <td id="porcentajeCompatibilidad">
+                                            0%
+                                        </td>
+
+                                        <td id="interpretacionCompatibilidad">
+                                            -
+                                        </td>
+                                    </tr>
+
+
+                                    <tr>
+                                        <td>4</td>
+
+                                        <td>
+                                            <i class="bi bi-person-check text-danger me-2"></i>
+                                            Usabilidad
+                                        </td>
+
+                                        <td id="puntajeUsabilidad">
+                                            0.0 / 5
+                                        </td>
+
+                                        <td id="porcentajeUsabilidad">
+                                            0%
+                                        </td>
+
+                                        <td id="interpretacionUsabilidad">
+                                            -
+                                        </td>
+                                    </tr>
+
+
+                                    <tr>
+                                        <td>5</td>
+
+                                        <td>
+                                            <i class="bi bi-shield-check text-danger me-2"></i>
+                                            Fiabilidad
+                                        </td>
+
+                                        <td id="puntajeFiabilidad">
+                                            0.0 / 5
+                                        </td>
+
+                                        <td id="porcentajeFiabilidad">
+                                            0%
+                                        </td>
+
+                                        <td id="interpretacionFiabilidad">
+                                            -
+                                        </td>
+                                    </tr>
+
+
+                                    <tr>
+                                        <td>6</td>
+
+                                        <td>
+                                            <i class="bi bi-shield-lock text-danger me-2"></i>
+                                            Seguridad
+                                        </td>
+
+                                        <td id="puntajeSeguridad">
+                                            0.0 / 5
+                                        </td>
+
+                                        <td id="porcentajeSeguridad">
+                                            0%
+                                        </td>
+
+                                        <td id="interpretacionSeguridad">
+                                            -
+                                        </td>
+                                    </tr>
+
+
+                                    <tr>
+                                        <td>7</td>
+
+                                        <td>
+                                            <i class="bi bi-tools text-danger me-2"></i>
+                                            Mantenibilidad
+                                        </td>
+
+                                        <td id="puntajeMantenibilidad">
+                                            0.0 / 5
+                                        </td>
+
+                                        <td id="porcentajeMantenibilidad">
+                                            0%
+                                        </td>
+
+                                        <td id="interpretacionMantenibilidad">
+                                            -
+                                        </td>
+                                    </tr>
+
+
+                                    <tr>
+                                        <td>8</td>
+
+                                        <td>
+                                            <i class="bi bi-phone text-danger me-2"></i>
+                                            Portabilidad
+                                        </td>
+
+                                        <td id="puntajePortabilidad">
+                                            0.0 / 5
+                                        </td>
+
+                                        <td id="porcentajePortabilidad">
+                                            0%
+                                        </td>
+
+                                        <td id="interpretacionPortabilidad">
+                                            -
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                GRÁFICA DE RESULTADOS
+            ================================================== -->
+            <section class="mb-5">
+
+                <div class="card shadow-sm border-0">
+
+                    <div class="card-header bg-dark text-white py-3">
+
+                        <h2 class="h4 mb-0">
+                            <i class="bi bi-bar-chart-fill me-2"></i>
+                            Resultados por característica
+                        </h2>
+
+                    </div>
+
+                    <div class="card-body p-4">
+
+                        <p class="text-muted mb-4">
+                            Puntuación obtenida por YouTube en cada característica
+                            evaluada según ISO/IEC 25010.
+                        </p>
+
+                        <div
+                            id="graficaCaracteristicas"
+                            style="
+                                width: 100%;
+                                height: 450px;
+                            "
+                        ></div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                CALIDAD GENERAL
+            ================================================== -->
+            <section class="mb-5">
+
+                <div class="row justify-content-center">
+
+                    <div class="col-lg-6">
+
+                        <div class="card shadow-sm border-0">
+
+                            <div class="card-header bg-danger text-white py-3">
+
+                                <h2 class="h5 mb-0">
+                                    <i class="bi bi-pie-chart-fill me-2"></i>
+                                    Calidad general
+                                </h2>
+
+                            </div>
+
+                            <div class="card-body p-4">
+
+                                <p class="text-muted text-center mb-4">
+                                    Porcentaje general obtenido por YouTube.
+                                </p>
+
+                                <div
+                                    id="graficaGlobal"
+                                    style="
+                                        width: 100%;
+                                        height: 350px;
+                                    "
+                                ></div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 ESCALA DE INTERPRETACIÓN
+            ================================================== -->
+            <section class="mb-5">
+
+                <div class="card shadow-sm border-0">
+
+                    <div class="card-header bg-dark text-white py-3">
+
+                        <h2 class="h4 mb-0">
+                            <i class="bi bi-list-ol me-2"></i>
+                            Escala de interpretación
+                        </h2>
+
+                    </div>
+
+                    <div class="card-body">
+
+                        <div class="table-responsive">
+
+                            <table class="table table-bordered text-center align-middle">
+
+                                <thead class="table-light">
+
+                                    <tr>
+                                        <th>Rango</th>
+                                        <th>Interpretación</th>
+                                    </tr>
+
+                                </thead>
+
+                                <tbody>
+
+                                    <tr>
+                                        <td>
+                                            <strong>1.0 - 1.9</strong>
+                                        </td>
+
+                                        <td>
+                                            <span class="badge bg-danger">
+                                                Muy malo
+                                            </span>
+                                        </td>
+                                    </tr>
+
+
+                                    <tr>
+                                        <td>
+                                            <strong>2.0 - 2.9</strong>
+                                        </td>
+
+                                        <td>
+                                            <span class="badge bg-warning text-dark">
+                                                Malo
+                                            </span>
+                                        </td>
+                                    </tr>
+
+
+                                    <tr>
+                                        <td>
+                                            <strong>3.0 - 3.9</strong>
+                                        </td>
+
+                                        <td>
+                                            <span class="badge bg-secondary">
+                                                Regular
+                                            </span>
+                                        </td>
+                                    </tr>
+
+
+                                    <tr>
+                                        <td>
+                                            <strong>4.0 - 4.4</strong>
+                                        </td>
+
+                                        <td>
+                                            <span class="badge bg-primary">
+                                                Bueno
+                                            </span>
+                                        </td>
+                                    </tr>
+
+
+                                    <tr>
+                                        <td>
+                                            <strong>4.5 - 5.0</strong>
+                                        </td>
+
+                                        <td>
+                                            <span class="badge bg-success">
+                                                Excelente
+                                            </span>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 OBSERVACIÓN
+            ================================================== -->
+            <section>
+
+                <div class="alert alert-light border">
+
+                    <h2 class="h5 fw-bold">
+                        <i class="bi bi-info-circle-fill text-danger me-2"></i>
+                        Observación
+                    </h2>
+
+                    <p class="mb-0">
+                        Los resultados presentados corresponden a las respuestas
+                        obtenidas mediante el cuestionario basado en las
+                        características de calidad del modelo ISO/IEC 25010.
+                        La puntuación de cada característica se obtiene a partir
+                        del promedio de las preguntas que pertenecen a ella.
+                    </p>
+
+                </div>
+
+            </section>
+
+        </section>
+
+    </div>
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
+    <footer class="bg-dark text-white py-4 mt-5">
+
+        <div class="container text-center">
+
+            <p class="mb-1">
+                <i class="bi bi-youtube text-danger"></i>
+                <strong>YouTube Quality</strong>
+            </p>
+
+            <p class="mb-0 text-secondary">
+                Evaluación de calidad de software basada en ISO/IEC 25010
+            </p>
+
+        </div>
+
+    </footer>
+
+        </main>
+
+    </div>
+
+
+    <!-- =========================================================
+        BOOTSTRAP JS
+    ========================================================= -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- =========================================================
+        JAVASCRIPT DEL PROYECTO
+    ========================================================= -->
+    <script src="../assets/js/data.js"></script>
+    <script src="../assets/js/utils.js"></script>
+    <script src="../assets/js/evaluacion.js"></script>
+    <script src="../assets/js/graficas.js"></script>
+    <script src="../assets/js/resultados.js"></script>
+    <script src="../assets/js/ui.js"></script>
+
+</body>
+</html>

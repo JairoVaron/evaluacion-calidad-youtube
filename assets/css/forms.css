@@ -1,0 +1,118 @@
+/* =========================================================
+   FORMS.CSS
+   Cuestionario de evaluación — cajas de pregunta estilo
+   "comentario" y escala de valoración como chips numerados.
+   No se modifican name/value/required: solo apariencia.
+   ========================================================= */
+
+.evaluation-section .card-header {
+    background: var(--yt-black) !important;
+}
+
+.question-box {
+    padding: 18px;
+    border: 1px solid var(--yt-gray-200);
+    border-radius: var(--radius-md);
+    background: var(--yt-white);
+    transition: border-color var(--transition-fast);
+}
+
+.question-box:hover {
+    border-color: var(--yt-gray-400);
+}
+
+.question-box .fw-semibold {
+    color: var(--yt-gray-900);
+    margin-bottom: 12px;
+}
+
+/* ---------- Escala de valoración: pastillas numeradas ---------- */
+.rating-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.rating-options .form-check-inline {
+    margin: 0;
+    padding: 0;
+}
+
+.rating-options .form-check-input {
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+}
+
+.rating-options .form-check-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1.5px solid var(--yt-gray-200);
+    background: var(--yt-gray-50);
+    color: var(--yt-gray-600);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    margin: 0;
+}
+
+.rating-options .form-check-label:hover {
+    border-color: var(--yt-gray-400);
+    color: var(--yt-gray-900);
+}
+
+.rating-options .form-check-input:checked + .form-check-label {
+    background: var(--yt-red);
+    border-color: var(--yt-red);
+    color: var(--yt-white);
+    transform: scale(1.06);
+}
+
+.rating-options .form-check-input:focus-visible + .form-check-label {
+    outline: 2px solid var(--yt-red);
+    outline-offset: 2px;
+}
+
+/* ---------- Franja de instrucciones / leyenda de escala ---------- */
+.scale-legend .badge {
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: var(--radius-pill);
+    margin-bottom: 4px;
+}
+
+/* ---------- Barra de progreso del cuestionario (mejora visual, no altera cálculo) ---------- */
+.yt-progress-wrapper {
+    position: sticky;
+    top: var(--nav-height);
+    z-index: 1010;
+    background: var(--yt-white);
+    border-bottom: 1px solid var(--yt-gray-200);
+    padding: 10px 0;
+}
+
+.yt-progress-track {
+    height: 4px;
+    border-radius: var(--radius-pill);
+    background: var(--yt-gray-200);
+    overflow: hidden;
+}
+
+.yt-progress-fill {
+    height: 100%;
+    width: 0%;
+    background: var(--yt-red);
+    transition: width var(--transition-base);
+}
+
+.yt-progress-label {
+    font-family: var(--font-data);
+    font-size: 0.78rem;
+    color: var(--yt-gray-600);
+    margin-top: 6px;
+}

@@ -1,0 +1,43 @@
+/* =========================================================
+   RESULTS.CSS
+   Tablero de resultados — marcadores grandes estilo "contador
+   de vistas" y tablas/gráficas con encabezado de marca.
+   ========================================================= */
+
+#resultadoGlobal,
+#resultadoPorcentaje {
+    font-family: var(--font-data);
+    font-weight: 700;
+    color: var(--yt-red) !important;
+}
+
+#resultadoInterpretacion {
+    font-family: var(--font-display);
+}
+
+.table-dark {
+    --bs-table-bg: var(--yt-black);
+}
+
+.card-header.bg-danger {
+    background-color: var(--yt-red) !important;
+}
+
+.card-header.bg-dark {
+    background-color: var(--yt-black) !important;
+}
+
+.table-hover > tbody > tr:hover > * {
+    background-color: var(--yt-red-wash);
+}
+
+#mensajeSinResultados {
+    background: var(--yt-white);
+    border: 1px dashed var(--yt-gray-200);
+    border-radius: var(--radius-lg);
+    color: var(--yt-gray-900);
+}
+
+#mensajeSinResultados i {
+    color: var(--yt-red);
+}

@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Modelo ISO/IEC 25010 | YouTube Quality</title>
+    <link rel="icon" type="image/webp" href="/assets/img/logo-icono.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- CSS propio -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body data-base="../">
+
+    <!-- =========================================================
+         BARRA SUPERIOR
+    ========================================================== -->
+    <nav class="yt-navbar">
+
+        <div class="yt-navbar-left">
+            <button class="yt-hamburger" type="button" data-sidebar-toggle aria-label="Abrir menú" aria-controls="ytSidebar">
+                <i class="bi bi-list"></i>
+            </button>
+
+            <a class="yt-brand" href="../index.html">
+                <span class="yt-play-icon"><i class="bi bi-play-fill"></i></span>
+                <span>
+                    YouTube Quality
+                    <span class="yt-brand-sub">Evaluación ISO/IEC 25010</span>
+                </span>
+            </a>
+        </div>
+
+        <div class="yt-navbar-center">
+            <form class="yt-search-form" id="ytSearchForm" role="search">
+                <input type="text" class="yt-search-input" id="ytSearchInput"
+                    placeholder="Buscar en el proyecto (modelo, evaluación, resultados...)" autocomplete="off">
+                <button type="submit" class="yt-search-btn" aria-label="Buscar">
+                    <i class="bi bi-search"></i>
+                </button>
+            </form>
+            <div class="yt-search-suggestions" id="ytSearchSuggestions"></div>
+        </div>
+
+        <div class="yt-navbar-right">
+            <button class="yt-icon-btn" type="button" aria-label="Aplicaciones">
+                <i class="bi bi-grid-3x3-gap"></i>
+            </button>
+            <button class="yt-icon-btn" type="button" aria-label="Notificaciones">
+                <i class="bi bi-bell"></i>
+            </button>
+            <div class="yt-avatar" title="Proyecto académico">YQ</div>
+        </div>
+
+    </nav>
+
+
+    <!-- =========================================================
+         LAYOUT: SIDEBAR + CONTENIDO
+    ========================================================== -->
+    <div class="yt-layout">
+
+        <aside class="yt-sidebar" id="ytSidebar">
+
+            <div class="yt-sidebar-group">
+                <a href="../index.html" class="yt-sidebar-item">
+                    <i class="bi bi-house-fill"></i> Inicio
+                </a>
+            </div>
+
+            <div class="yt-sidebar-group">
+                <div class="yt-sidebar-label">Proyecto</div>
+
+                <a href="modelo.html" class="yt-sidebar-item is-active">
+                    <i class="bi bi-diagram-3"></i> Modelo de calidad
+                </a>
+                <a href="evaluacion.html" class="yt-sidebar-item">
+                    <i class="bi bi-clipboard-check"></i> Evaluación
+                </a>
+                <a href="resultados.html" class="yt-sidebar-item">
+                    <i class="bi bi-bar-chart-fill"></i> Resultados
+                </a>
+                <a href="conclusiones.html" class="yt-sidebar-item">
+                    <i class="bi bi-award"></i> Conclusiones
+                </a>
+            </div>
+
+            <div class="yt-sidebar-group">
+                <div class="yt-sidebar-note">
+                    <i class="bi bi-mortarboard-fill text-danger"></i>
+                    Proyecto académico de Ingeniería de Software.
+                    Modelo ISO/IEC 25010 aplicado a YouTube.
+                </div>
+            </div>
+
+        </aside>
+
+        <div class="yt-sidebar-backdrop" id="ytSidebarBackdrop"></div>
+
+
+        <main class="yt-main">
+
+            <!-- =========================================================
+                 ENCABEZADO
+            ========================================================== -->
+            <header class="py-5 bg-light border-bottom">
+
+                <div class="container">
+
+                    <div class="row justify-content-center text-center">
+
+                        <div class="col-lg-9">
+
+                            <span class="section-tag">
+                                <i class="bi bi-diagram-3-fill"></i>
+                                Modelo de calidad
+                            </span>
+
+                            <h1 class="mt-3">
+                                ISO/IEC 25010
+                            </h1>
+
+                            <p class="lead text-muted mt-3">
+                                Modelo utilizado para evaluar la calidad del
+                                software seleccionado para este proyecto:
+                                <strong>YouTube</strong>.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- =========================================================
+                 ¿QUÉ ES ISO 25010?
+            ========================================================== -->
+            <section class="py-5">
+
+                <div class="container">
+
+                    <div class="row align-items-center g-5">
+
+                        <div class="col-lg-7">
+
+                            <span class="section-tag">
+                                <i class="bi bi-info-circle-fill"></i>
+                                Introducción
+                            </span>
+
+                            <h2 class="mt-3">
+                                ¿Qué es ISO/IEC 25010?
+                            </h2>
+
+                            <p class="text-muted">
+                                ISO/IEC 25010 es un modelo que permite evaluar
+                                diferentes características relacionadas con la
+                                calidad de un producto de software.
+                            </p>
+
+                            <p class="text-muted">
+                                El modelo permite analizar aspectos como las
+                                funciones del sistema, su facilidad de uso,
+                                rendimiento, seguridad, compatibilidad y otros
+                                elementos relacionados con la calidad del software.
+                            </p>
+
+                            <p class="text-muted">
+                                En este proyecto se utilizará este modelo para
+                                realizar una evaluación de la plataforma YouTube,
+                                utilizando una escala de valoración de 1 a 5.
+                            </p>
+
+                        </div>
+
+                        <div class="col-lg-5 text-center">
+
+                            <!--
+                                IMAGEN RECOMENDADA:
+
+                                Buscar en Internet:
+                                "ISO IEC 25010 software quality model diagram"
+
+                                También puedes buscar:
+                                "ISO 25010 quality model español"
+
+                                Guardar como:
+                                assets/img/iso-25010.png
+                            -->
+
+                            <img src="../assets/img/iso-25010.png"
+                                alt="Modelo de calidad ISO/IEC 25010"
+                                class="img-fluid rounded-4 shadow">
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================================================
+                 OBJETIVO DEL MODELO
+            ========================================================== -->
+            <section class="py-5 bg-dark text-white">
+
+                <div class="container">
+
+                    <div class="row justify-content-center text-center">
+
+                        <div class="col-lg-9">
+
+                            <i class="bi bi-bullseye text-danger display-5"></i>
+
+                            <h2 class="mt-3">
+                                Objetivo del modelo
+                            </h2>
+
+                            <p class="text-white-50 mt-3">
+                                El objetivo es identificar y valorar diferentes
+                                características de calidad de un producto de
+                                software para conocer sus fortalezas y los aspectos
+                                que pueden mejorarse.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================================================
+                 CARACTERÍSTICAS DEL MODELO
+            ========================================================== -->
+            <section class="py-5">
+
+                <div class="container">
+
+                    <div class="text-center mb-5">
+
+                        <span class="section-tag">
+                            <i class="bi bi-grid-fill"></i>
+                            Características
+                        </span>
+
+                        <h2 class="mt-3">
+                            Características de calidad
+                        </h2>
+
+                        <p class="text-muted">
+                            Estas son las características que serán consideradas
+                            durante la evaluación de YouTube.
+                        </p>
+
+                    </div>
+
+
+                    <div class="row g-4">
+
+
+                        <!-- 1. ADECUACIÓN FUNCIONAL -->
+                        <div class="col-md-6 col-lg-4" id="caracteristica-funcionalidad">
+
+                            <div class="card h-100 border-0 shadow-sm model-card">
+
+                                <div class="card-body p-4">
+
+                                    <div class="d-flex align-items-center mb-3">
+
+                                        <div class="model-icon bg-danger bg-opacity-10 text-danger">
+                                            <i class="bi bi-check-circle"></i>
+                                        </div>
+
+                                        <div class="ms-3">
+                                            <span class="model-index">CARACTERÍSTICA 01</span>
+                                            <h5 class="fw-bold mb-0">
+                                                Adecuación funcional
+                                            </h5>
+                                        </div>
+
+                                    </div>
+
+                                    <p class="text-muted">
+                                        Evalúa si las funciones que ofrece el
+                                        software permiten cumplir con las
+                                        necesidades para las que fue creado.
+                                    </p>
+
+                                    <hr>
+
+                                    <div class="in-youtube-tag">
+                                        <strong>En YouTube:</strong>
+                                        búsqueda, reproducción, comentarios,
+                                        suscripciones y otras funciones.
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- 2. EFICIENCIA DE RENDIMIENTO -->
+                        <div class="col-md-6 col-lg-4" id="caracteristica-rendimiento">
+
+                            <div class="card h-100 border-0 shadow-sm model-card">
+
+                                <div class="card-body p-4">
+
+                                    <div class="d-flex align-items-center mb-3">
+
+                                        <div class="model-icon bg-danger bg-opacity-10 text-danger">
+                                            <i class="bi bi-speedometer2"></i>
+                                        </div>
+
+                                        <div class="ms-3">
+                                            <span class="model-index">CARACTERÍSTICA 02</span>
+                                            <h5 class="fw-bold mb-0">
+                                                Eficiencia de rendimiento
+                                            </h5>
+                                        </div>
+
+                                    </div>
+
+                                    <p class="text-muted">
+                                        Evalúa el rendimiento del software y los
+                                        recursos que utiliza durante su funcionamiento.
+                                    </p>
+
+                                    <hr>
+
+                                    <div class="in-youtube-tag">
+                                        <strong>En YouTube:</strong>
+                                        velocidad de carga, reproducción de videos
+                                        y respuesta de la plataforma.
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- 3. COMPATIBILIDAD -->
+                        <div class="col-md-6 col-lg-4" id="caracteristica-compatibilidad">
+
+                            <div class="card h-100 border-0 shadow-sm model-card">
+
+                                <div class="card-body p-4">
+
+                                    <div class="d-flex align-items-center mb-3">
+
+                                        <div class="model-icon bg-danger bg-opacity-10 text-danger">
+                                            <i class="bi bi-layers"></i>
+                                        </div>
+
+                                        <div class="ms-3">
+                                            <span class="model-index">CARACTERÍSTICA 03</span>
+                                            <h5 class="fw-bold mb-0">
+                                                Compatibilidad
+                                            </h5>
+                                        </div>
+
+                                    </div>
+
+                                    <p class="text-muted">
+                                        Evalúa la capacidad del software para
+                                        funcionar correctamente junto con otros
+                                        sistemas y entornos.
+                                    </p>
+
+                                    <hr>
+
+                                    <div class="in-youtube-tag">
+                                        <strong>En YouTube:</strong>
+                                        navegadores, sistemas operativos,
+                                        computadores y dispositivos móviles.
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- 4. USABILIDAD -->
+                        <div class="col-md-6 col-lg-4" id="caracteristica-usabilidad">
+
+                            <div class="card h-100 border-0 shadow-sm model-card">
+
+                                <div class="card-body p-4">
+
+                                    <div class="d-flex align-items-center mb-3">
+
+                                        <div class="model-icon bg-danger bg-opacity-10 text-danger">
+                                            <i class="bi bi-person-check"></i>
+                                        </div>
+
+                                        <div class="ms-3">
+                                            <span class="model-index">CARACTERÍSTICA 04</span>
+                                            <h5 class="fw-bold mb-0">
+                                                Usabilidad
+                                            </h5>
+                                        </div>
+
+                                    </div>
+
+                                    <p class="text-muted">
+                                        Evalúa qué tan fácil es para los usuarios
+                                        aprender, entender y utilizar el software.
+                                    </p>
+
+                                    <hr>
+
+                                    <div class="in-youtube-tag">
+                                        <strong>En YouTube:</strong>
+                                        navegación, búsqueda de contenido,
+                                        controles y organización de la interfaz.
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- 5. FIABILIDAD -->
+                        <div class="col-md-6 col-lg-4" id="caracteristica-fiabilidad">
+
+                            <div class="card h-100 border-0 shadow-sm model-card">
+
+                                <div class="card-body p-4">
+
+                                    <div class="d-flex align-items-center mb-3">
+
+                                        <div class="model-icon bg-danger bg-opacity-10 text-danger">
+                                            <i class="bi bi-shield-check"></i>
+                                        </div>
+
+                                        <div class="ms-3">
+                                            <span class="model-index">CARACTERÍSTICA 05</span>
+                                            <h5 class="fw-bold mb-0">
+                                                Fiabilidad
+                                            </h5>
+                                        </div>
+
+                                    </div>
+
+                                    <p class="text-muted">
+                                        Evalúa la capacidad del software para
+                                        funcionar correctamente y mantener su
+                                        funcionamiento durante un periodo determinado.
+                                    </p>
+
+                                    <hr>
+
+                                    <div class="in-youtube-tag">
+                                        <strong>En YouTube:</strong>
+                                        estabilidad, disponibilidad y recuperación
+                                        ante errores.
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- 6. SEGURIDAD -->
+                        <div class="col-md-6 col-lg-4" id="caracteristica-seguridad">
+
+                            <div class="card h-100 border-0 shadow-sm model-card">
+
+                                <div class="card-body p-4">
+
+                                    <div class="d-flex align-items-center mb-3">
+
+                                        <div class="model-icon bg-danger bg-opacity-10 text-danger">
+                                            <i class="bi bi-lock"></i>
+                                        </div>
+
+                                        <div class="ms-3">
+                                            <span class="model-index">CARACTERÍSTICA 06</span>
+                                            <h5 class="fw-bold mb-0">
+                                                Seguridad
+                                            </h5>
+                                        </div>
+
+                                    </div>
+
+                                    <p class="text-muted">
+                                        Evalúa la protección de la información y el
+                                        control de acceso a las funciones y datos
+                                        del sistema.
+                                    </p>
+
+                                    <hr>
+
+                                    <div class="in-youtube-tag">
+                                        <strong>En YouTube:</strong>
+                                        cuentas, autenticación, privacidad y
+                                        protección de la información.
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- 7. MANTENIBILIDAD -->
+                        <div class="col-md-6 col-lg-6" id="caracteristica-mantenibilidad">
+
+                            <div class="card h-100 border-0 shadow-sm model-card">
+
+                                <div class="card-body p-4">
+
+                                    <div class="d-flex align-items-center mb-3">
+
+                                        <div class="model-icon bg-danger bg-opacity-10 text-danger">
+                                            <i class="bi bi-tools"></i>
+                                        </div>
+
+                                        <div class="ms-3">
+                                            <span class="model-index">CARACTERÍSTICA 07</span>
+                                            <h5 class="fw-bold mb-0">
+                                                Mantenibilidad
+                                            </h5>
+                                        </div>
+
+                                    </div>
+
+                                    <p class="text-muted">
+                                        Evalúa qué tan fácil es analizar, modificar
+                                        y mantener el software cuando se necesitan
+                                        cambios o correcciones.
+                                    </p>
+
+                                    <hr>
+
+                                    <div class="in-youtube-tag">
+                                        <strong>En YouTube:</strong>
+                                        actualizaciones, correcciones y mejoras
+                                        realizadas en la plataforma.
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- 8. PORTABILIDAD -->
+                        <div class="col-md-6 col-lg-6" id="caracteristica-portabilidad">
+
+                            <div class="card h-100 border-0 shadow-sm model-card">
+
+                                <div class="card-body p-4">
+
+                                    <div class="d-flex align-items-center mb-3">
+
+                                        <div class="model-icon bg-danger bg-opacity-10 text-danger">
+                                            <i class="bi bi-phone"></i>
+                                        </div>
+
+                                        <div class="ms-3">
+                                            <span class="model-index">CARACTERÍSTICA 08</span>
+                                            <h5 class="fw-bold mb-0">
+                                                Portabilidad
+                                            </h5>
+                                        </div>
+
+                                    </div>
+
+                                    <p class="text-muted">
+                                        Evalúa la capacidad del software para
+                                        funcionar correctamente en diferentes
+                                        entornos y dispositivos.
+                                    </p>
+
+                                    <hr>
+
+                                    <div class="in-youtube-tag">
+                                        <strong>En YouTube:</strong>
+                                        computadores, teléfonos, tablets,
+                                        televisores y diferentes sistemas operativos.
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================================================
+                 ESCALA DE VALORACIÓN
+            ========================================================== -->
+            <section class="py-5 bg-light">
+
+                <div class="container">
+
+                    <div class="row justify-content-center">
+
+                        <div class="col-lg-9">
+
+                            <div class="text-center mb-4">
+
+                                <span class="section-tag">
+                                    <i class="bi bi-sliders"></i>
+                                    Escala
+                                </span>
+
+                                <h2 class="mt-3">
+                                    Escala de valoración
+                                </h2>
+
+                                <p class="text-muted">
+                                    Para responder las preguntas de la evaluación
+                                    se utilizará una escala de 1 a 5.
+                                </p>
+
+                            </div>
+
+
+                            <div class="table-responsive">
+
+                                <table class="table table-bordered table-hover bg-white shadow-sm">
+
+                                    <thead class="table-dark">
+                                        <tr>
+                                            <th class="text-center">Valor</th>
+                                            <th>Nivel</th>
+                                            <th>Descripción</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+
+                                        <tr>
+                                            <td class="text-center fw-bold">1</td>
+                                            <td>Muy malo</td>
+                                            <td>El software presenta muchas dificultades en este aspecto.</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td class="text-center fw-bold">2</td>
+                                            <td>Malo</td>
+                                            <td>Presenta varias dificultades que afectan su calidad.</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td class="text-center fw-bold">3</td>
+                                            <td>Regular</td>
+                                            <td>Cumple de manera aceptable, pero existen aspectos por mejorar.</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td class="text-center fw-bold">4</td>
+                                            <td>Bueno</td>
+                                            <td>Cumple correctamente y presenta pocas dificultades.</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td class="text-center fw-bold">5</td>
+                                            <td>Excelente</td>
+                                            <td>Cumple de manera completa y presenta un alto nivel de calidad.</td>
+                                        </tr>
+
+                                    </tbody>
+
+                                </table>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================================================
+                 BOTÓN A EVALUACIÓN
+            ========================================================== -->
+            <section class="py-5 bg-dark text-white">
+
+                <div class="container text-center">
+
+                    <i class="bi bi-clipboard-check text-danger display-5"></i>
+
+                    <h2 class="mt-3">
+                        ¿Listo para realizar la evaluación?
+                    </h2>
+
+                    <p class="text-white-50">
+                        Continúa con el cuestionario basado en el modelo
+                        ISO/IEC 25010.
+                    </p>
+
+                    <a href="evaluacion.html" class="btn btn-danger btn-lg mt-2">
+                        Comenzar evaluación
+                        <i class="bi bi-arrow-right"></i>
+                    </a>
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================================================
+                 FOOTER
+            ========================================================== -->
+            <footer class="bg-dark text-white py-4">
+
+                <div class="container">
+
+                    <div class="row align-items-center">
+
+                        <div class="col-md-6 text-center text-md-start">
+                            <h5 class="fw-bold mb-1">
+                                <i class="bi bi-youtube text-danger"></i>
+                                YouTube Quality
+                            </h5>
+                            <small class="text-white-50">Evaluación de calidad de software</small>
+                        </div>
+
+                        <div class="col-md-6 text-center text-md-end mt-3 mt-md-0">
+                            <small class="text-white-50">Ingeniería de Software</small>
+                            <br>
+                            <small class="text-white-50">Modelo ISO/IEC 25010</small>
+                        </div>
+
+                    </div>
+
+                    <hr class="border-secondary my-3">
+
+                    <div class="text-center">
+                        <small class="text-white-50">Proyecto académico - 2026</small>
+                    </div>
+
+                </div>
+
+            </footer>
+
+        </main>
+
+    </div>
+
+
+    <!-- =========================================================
+         BOOTSTRAP JS
+    ========================================================== -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JavaScript propio -->
+    <script src="../assets/js/data.js"></script>
+    <script src="../assets/js/utils.js"></script>
+    <script src="../assets/js/evaluacion.js"></script>
+    <script src="../assets/js/resultados.js"></script>
+    <script src="../assets/js/ui.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+/* =========================================================
+   STYLE.CSS
+   Punto de entrada. Importa los módulos de estilo.
+   Así el <link href="assets/css/style.css"> de cada página
+   no necesita cambiar, pero el CSS queda organizado en
+   varios archivos fáciles de editar por separado.
+   ========================================================= */
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&family=Roboto+Mono:wght@400;500;700&display=swap");
+
+@import url("variables.css");
+@import url("base.css");
+@import url("navbar.css");
+@import url("sidebar.css");
+@import url("hero.css");
+@import url("buttons.css");
+@import url("cards.css");
+@import url("forms.css");
+@import url("results.css");
+@import url("footer.css");
+@import url("miniaturas.css");

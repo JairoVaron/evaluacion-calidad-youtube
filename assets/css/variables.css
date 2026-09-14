@@ -1,0 +1,67 @@
+/* =========================================================
+   VARIABLES.CSS
+   Tokens de diseño — inspirados en la interfaz real de YouTube,
+   adaptados a un trabajo académico serio.
+   ========================================================= */
+
+:root {
+
+    /* ---------- Color base (paleta YouTube) ---------- */
+    --yt-black: #0f0f0f;          /* navbar, footer, texto principal */
+    --yt-black-soft: #181818;     /* superficies oscuras secundarias */
+    --yt-red: #ff0000;            /* acento principal de marca */
+    --yt-red-dark: #cc0000;       /* hover / estados activos */
+    --yt-red-wash: #fff1f1;       /* fondo suave con tinte rojo */
+    --yt-white: #ffffff;
+
+    --yt-gray-50:  #f9f9f9;       /* fondo general de página */
+    --yt-gray-100: #f2f2f2;       /* fondo de tarjetas / hover */
+    --yt-gray-200: #e5e5e5;       /* bordes suaves */
+    --yt-gray-400: #aaaaaa;       /* iconos secundarios */
+    --yt-gray-600: #606060;       /* texto secundario ("metadata") */
+    --yt-gray-900: #0f0f0f;       /* texto principal */
+
+    /* Estados de interpretación (reutilizan escala del proyecto) */
+    --score-excelente: #2e7d32;
+    --score-bueno:      #1565c0;
+    --score-regular:    #606060;
+    --score-malo:       #e6a700;
+    --score-muymalo:    #cc0000;
+
+    /* ---------- Tipografía ---------- */
+    --font-display: "Roboto", "Segoe UI", Arial, sans-serif;
+    --font-body: "Roboto", "Segoe UI", Arial, sans-serif;
+    --font-data: "Roboto Mono", "Courier New", monospace;
+
+    --fs-h1: clamp(2rem, 1.5rem + 2vw, 3.25rem);
+    --fs-h2: clamp(1.5rem, 1.3rem + 1vw, 2.25rem);
+    --fs-h3: clamp(1.15rem, 1.05rem + 0.4vw, 1.5rem);
+    --fs-body: 1rem;
+    --fs-small: 0.875rem;
+
+    /* ---------- Layout ---------- */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-pill: 999px;
+
+    --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.08), 0 4px 14px rgba(0, 0, 0, 0.06);
+    --shadow-card-hover: 0 6px 20px rgba(0, 0, 0, 0.14);
+    --shadow-navbar: 0 1px 0 rgba(255, 255, 255, 0.08);
+
+    --nav-height: 56px;
+    --sidebar-width: 240px;
+    --sidebar-width-mini: 72px;
+
+    --transition-fast: 150ms ease;
+    --transition-base: 220ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}

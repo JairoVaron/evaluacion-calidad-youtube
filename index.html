@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Evaluación de Calidad - YouTube | ISO/IEC 25010</title>
+    <link rel="icon" type="image/webp" href="/assets/img/logo-icono.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- CSS propio (style.css importa los módulos de assets/css/) -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body data-base="">
+
+    <!-- =========================================================
+         BARRA SUPERIOR
+    ========================================================== -->
+    <nav class="yt-navbar">
+
+        <div class="yt-navbar-left">
+            <button class="yt-hamburger" type="button" data-sidebar-toggle aria-label="Abrir menú" aria-controls="ytSidebar">
+                <i class="bi bi-list"></i>
+            </button>
+
+            <a class="yt-brand" href="index.html">
+                <span class="yt-play-icon"><i class="bi bi-play-fill"></i></span>
+                <span>
+                    YouTube Quality
+                    <span class="yt-brand-sub">Evaluación ISO/IEC 25010</span>
+                </span>
+            </a>
+        </div>
+
+        <div class="yt-navbar-center">
+            <form class="yt-search-form" id="ytSearchForm" role="search">
+                <input type="text" class="yt-search-input" id="ytSearchInput"
+                    placeholder="Buscar en el proyecto (modelo, evaluación, resultados...)" autocomplete="off">
+                <button type="submit" class="yt-search-btn" aria-label="Buscar">
+                    <i class="bi bi-search"></i>
+                </button>
+            </form>
+            <div class="yt-search-suggestions" id="ytSearchSuggestions"></div>
+        </div>
+
+        <div class="yt-navbar-right">
+            <button class="yt-icon-btn" type="button" aria-label="Aplicaciones">
+                <i class="bi bi-grid-3x3-gap"></i>
+            </button>
+            <button class="yt-icon-btn" type="button" aria-label="Notificaciones">
+                <i class="bi bi-bell"></i>
+            </button>
+            <div class="yt-avatar" title="Proyecto académico">YQ</div>
+        </div>
+
+    </nav>
+
+
+    <!-- =========================================================
+         LAYOUT: SIDEBAR + CONTENIDO
+    ========================================================== -->
+    <div class="yt-layout">
+
+        <!-- Menú lateral -->
+        <aside class="yt-sidebar" id="ytSidebar">
+
+            <div class="yt-sidebar-group">
+                <a href="index.html" class="yt-sidebar-item is-active">
+                    <i class="bi bi-house-fill"></i> Inicio
+                </a>
+            </div>
+
+            <div class="yt-sidebar-group">
+                <div class="yt-sidebar-label">Proyecto</div>
+
+                <a href="pages/modelo.html" class="yt-sidebar-item">
+                    <i class="bi bi-diagram-3"></i> Modelo de calidad
+                </a>
+                <a href="pages/evaluacion.html" class="yt-sidebar-item">
+                    <i class="bi bi-clipboard-check"></i> Evaluación
+                </a>
+                <a href="pages/resultados.html" class="yt-sidebar-item">
+                    <i class="bi bi-bar-chart-fill"></i> Resultados
+                </a>
+                <a href="pages/conclusiones.html" class="yt-sidebar-item">
+                    <i class="bi bi-award"></i> Conclusiones
+                </a>
+            </div>
+
+            <div class="yt-sidebar-group">
+                <div class="yt-sidebar-note">
+                    <i class="bi bi-mortarboard-fill text-danger"></i>
+                    Proyecto académico de Ingeniería de Software.
+                    Modelo ISO/IEC 25010 aplicado a YouTube.
+                </div>
+            </div>
+
+        </aside>
+
+        <div class="yt-sidebar-backdrop" id="ytSidebarBackdrop"></div>
+
+
+        <!-- Contenido principal -->
+        <main class="yt-main">
+
+            <!-- =====================================================
+                 BANNER DE CANAL
+            ====================================================== -->
+            <section class="channel-banner">
+
+                <div class="container">
+
+                    <div class="d-flex flex-column flex-sm-row align-items-sm-center gap-4">
+
+                        <div class="channel-avatar">
+                            <!--
+                                IMAGEN RECOMENDADA:
+                                Buscar en Google:
+                                "YouTube logo transparent PNG"
+
+                                Guardarla en:
+                                assets/img/logo-youtube.png
+                            -->
+                            <img src="assets/img/logo-youtube.png" alt="Logo de YouTube">
+                        </div>
+
+                        <div>
+                            <h1 class="channel-name">YouTube Quality</h1>
+
+                            <div class="channel-meta">
+                                <span>Canal de evaluación académica</span>
+                                <span class="dot">Ingeniería de Software</span>
+                                <span class="dot">Modelo ISO/IEC 25010</span>
+                            </div>
+
+                            <p class="channel-tagline">
+                                Aplicamos el modelo de calidad ISO/IEC 25010
+                                para evaluar, de forma organizada, la
+                                plataforma YouTube.
+                            </p>
+
+                            <div class="channel-actions">
+                                <a href="pages/evaluacion.html" class="btn btn-danger btn-lg">
+                                    <i class="bi bi-clipboard-check"></i>
+                                    Ir a la evaluación
+                                </a>
+                                <a href="pages/modelo.html" class="btn btn-outline-light btn-lg">
+                                    Ver modelo de calidad
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="channel-stats">
+                        <div class="stat">
+                            <strong>8</strong>
+                            <span>características ISO/IEC 25010</span>
+                        </div>
+                        <div class="stat">
+                            <strong>24</strong>
+                            <span>preguntas del cuestionario</span>
+                        </div>
+                        <div class="stat">
+                            <strong>1–5</strong>
+                            <span>escala de valoración</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =====================================================
+                 SOFTWARE EVALUADO
+            ====================================================== -->
+            <section class="py-5 border-bottom">
+
+                <div class="container">
+
+                    <div class="row align-items-center g-5">
+
+                        <div class="col-lg-5">
+                            <!--
+                                IMAGEN RECOMENDADA:
+                                Buscar:
+                                "YouTube desktop interface screenshot"
+
+                                Guardarla en:
+                                assets/img/youtube-interfaz.png
+                            -->
+                            <img src="assets/img/youtube-interfaz.png"
+                                alt="Interfaz de YouTube"
+                                class="img-fluid rounded-4 shadow">
+                        </div>
+
+                        <div class="col-lg-7">
+
+                            <span class="section-tag">
+                                <i class="bi bi-youtube"></i>
+                                Software evaluado
+                            </span>
+
+                            <h2 class="mt-3">YouTube</h2>
+
+                            <p class="text-muted">
+                                YouTube es una plataforma digital para compartir,
+                                visualizar y descubrir contenido audiovisual.
+                                Debido a la cantidad de funciones que ofrece y a
+                                la variedad de usuarios y dispositivos en los que
+                                puede utilizarse, resulta apropiada para aplicar
+                                un modelo de evaluación de calidad de software.
+                            </p>
+
+                            <div class="d-flex flex-wrap gap-2 mt-3">
+                                <span class="in-youtube-tag">
+                                    <i class="bi bi-play-circle-fill text-danger me-1"></i>
+                                    Reproducción de videos
+                                </span>
+                                <span class="in-youtube-tag">
+                                    <i class="bi bi-search text-danger me-1"></i>
+                                    Búsqueda de contenido
+                                </span>
+                                <span class="in-youtube-tag">
+                                    <i class="bi bi-person-circle text-danger me-1"></i>
+                                    Cuentas de usuario
+                                </span>
+                                <span class="in-youtube-tag">
+                                    <i class="bi bi-phone text-danger me-1"></i>
+                                    Multiplataforma
+                                </span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =====================================================
+                 FEED: CARACTERÍSTICAS DEL MODELO
+            ====================================================== -->
+            <section class="py-5">
+
+                <div class="container">
+
+                    <div class="feed-row-header">
+
+                        <div>
+                            <span class="section-tag">
+                                <i class="bi bi-diagram-3-fill"></i>
+                                Modelo utilizado
+                            </span>
+
+                            <h2 class="mt-2">ISO/IEC 25010</h2>
+                        </div>
+
+                        <a href="pages/modelo.html">
+                            Ver modelo completo
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+
+                    </div>
+
+
+                    <div class="row g-4">
+
+
+                        <!-- =================================================
+                            1. ADECUACIÓN FUNCIONAL
+                        ================================================== -->
+                        <div class="col-sm-6 col-lg-3">
+
+                            <a href="pages/modelo.html#caracteristica-funcionalidad"
+                            class="mini-card">
+
+                                <div class="video-thumb">
+
+                                    <img src="assets/img/funcionalidad.jpg"
+                                        alt="Adecuación funcional">
+
+                                    <span class="duration-badge">
+                                        3 preguntas
+                                    </span>
+
+                                </div>
+
+                                <div class="mini-card-body">
+
+                                    <span class="mini-card-eyebrow">
+                                        ISO/IEC 25010
+                                    </span>
+
+                                    <h3>
+                                        Adecuación funcional
+                                    </h3>
+
+                                </div>
+
+                            </a>
+
+                        </div>
+
+
+                        <!-- =================================================
+                            2. EFICIENCIA DE RENDIMIENTO
+                        ================================================== -->
+                        <div class="col-sm-6 col-lg-3">
+
+                            <a href="pages/modelo.html#caracteristica-rendimiento"
+                            class="mini-card">
+
+                                <div class="video-thumb">
+
+                                    <img src="assets/img/rendimiento.jpg"
+                                        alt="Eficiencia de rendimiento">
+
+                                    <span class="duration-badge">
+                                        3 preguntas
+                                    </span>
+
+                                </div>
+
+                                <div class="mini-card-body">
+
+                                    <span class="mini-card-eyebrow">
+                                        ISO/IEC 25010
+                                    </span>
+
+                                    <h3>
+                                        Eficiencia de rendimiento
+                                    </h3>
+
+                                </div>
+
+                            </a>
+
+                        </div>
+
+
+                        <!-- =================================================
+                            3. COMPATIBILIDAD
+                        ================================================== -->
+                        <div class="col-sm-6 col-lg-3">
+
+                            <a href="pages/modelo.html#caracteristica-compatibilidad"
+                            class="mini-card">
+
+                                <div class="video-thumb">
+
+                                    <img src="assets/img/compatibilidad.jpg"
+                                        alt="Compatibilidad">
+
+                                    <span class="duration-badge">
+                                        3 preguntas
+                                    </span>
+
+                                </div>
+
+                                <div class="mini-card-body">
+
+                                    <span class="mini-card-eyebrow">
+                                        ISO/IEC 25010
+                                    </span>
+
+                                    <h3>
+                                        Compatibilidad
+                                    </h3>
+
+                                </div>
+
+                            </a>
+
+                        </div>
+
+
+                        <!-- =================================================
+                            4. USABILIDAD
+                        ================================================== -->
+                        <div class="col-sm-6 col-lg-3">
+
+                            <a href="pages/modelo.html#caracteristica-usabilidad"
+                            class="mini-card">
+
+                                <div class="video-thumb">
+
+                                    <img src="assets/img/usabilidad.jpg"
+                                        alt="Usabilidad">
+
+                                    <span class="duration-badge">
+                                        3 preguntas
+                                    </span>
+
+                                </div>
+
+                                <div class="mini-card-body">
+
+                                    <span class="mini-card-eyebrow">
+                                        ISO/IEC 25010
+                                    </span>
+
+                                    <h3>
+                                        Usabilidad
+                                    </h3>
+
+                                </div>
+
+                            </a>
+
+                        </div>
+
+
+                        <!-- =================================================
+                            5. FIABILIDAD
+                        ================================================== -->
+                        <div class="col-sm-6 col-lg-3">
+
+                            <a href="pages/modelo.html#caracteristica-fiabilidad"
+                            class="mini-card">
+
+                                <div class="video-thumb">
+
+                                    <img src="assets/img/fiabilidad.jpg"
+                                        alt="Fiabilidad">
+
+                                    <span class="duration-badge">
+                                        3 preguntas
+                                    </span>
+
+                                </div>
+
+                                <div class="mini-card-body">
+
+                                    <span class="mini-card-eyebrow">
+                                        ISO/IEC 25010
+                                    </span>
+
+                                    <h3>
+                                        Fiabilidad
+                                    </h3>
+
+                                </div>
+
+                            </a>
+
+                        </div>
+
+
+                        <!-- =================================================
+                            6. SEGURIDAD
+                        ================================================== -->
+                        <div class="col-sm-6 col-lg-3">
+
+                            <a href="pages/modelo.html#caracteristica-seguridad"
+                            class="mini-card">
+
+                                <div class="video-thumb">
+
+                                    <img src="assets/img/seguridad.jpg"
+                                        alt="Seguridad">
+
+                                    <span class="duration-badge">
+                                        3 preguntas
+                                    </span>
+
+                                </div>
+
+                                <div class="mini-card-body">
+
+                                    <span class="mini-card-eyebrow">
+                                        ISO/IEC 25010
+                                    </span>
+
+                                    <h3>
+                                        Seguridad
+                                    </h3>
+
+                                </div>
+
+                            </a>
+
+                        </div>
+
+
+                        <!-- =================================================
+                            7. MANTENIBILIDAD
+                        ================================================== -->
+                        <div class="col-sm-6 col-lg-3">
+
+                            <a href="pages/modelo.html#caracteristica-mantenibilidad"
+                            class="mini-card">
+
+                                <div class="video-thumb">
+
+                                    <img src="assets/img/mantenibilidad.jpg"
+                                        alt="Mantenibilidad">
+
+                                    <span class="duration-badge">
+                                        3 preguntas
+                                    </span>
+
+                                </div>
+
+                                <div class="mini-card-body">
+
+                                    <span class="mini-card-eyebrow">
+                                        ISO/IEC 25010
+                                    </span>
+
+                                    <h3>
+                                        Mantenibilidad
+                                    </h3>
+
+                                </div>
+
+                            </a>
+
+                        </div>
+
+
+                        <!-- =================================================
+                            8. PORTABILIDAD
+                        ================================================== -->
+                        <div class="col-sm-6 col-lg-3">
+
+                            <a href="pages/modelo.html#caracteristica-portabilidad"
+                            class="mini-card">
+
+                                <div class="video-thumb">
+
+                                    <img src="assets/img/portabilidad.jpg"
+                                        alt="Portabilidad">
+
+                                    <span class="duration-badge">
+                                        3 preguntas
+                                    </span>
+
+                                </div>
+
+                                <div class="mini-card-body">
+
+                                    <span class="mini-card-eyebrow">
+                                        ISO/IEC 25010
+                                    </span>
+
+                                    <h3>
+                                        Portabilidad
+                                    </h3>
+
+                                </div>
+
+                            </a>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =====================================================
+                 FOOTER
+            ====================================================== -->
+            <footer class="bg-dark text-white py-4">
+
+                <div class="container">
+
+                    <div class="row align-items-center">
+
+                        <div class="col-md-6 text-center text-md-start">
+                            <h5 class="fw-bold mb-1">
+                                <i class="bi bi-youtube text-danger"></i>
+                                YouTube Quality
+                            </h5>
+                            <small class="text-white-50">Evaluación de calidad de software</small>
+                        </div>
+
+                        <div class="col-md-6 text-center text-md-end mt-3 mt-md-0">
+                            <small class="text-white-50">Ingeniería de Software</small>
+                            <br>
+                            <small class="text-white-50">ISO/IEC 25010</small>
+                        </div>
+
+                    </div>
+
+                    <hr class="border-secondary my-3">
+
+                    <div class="text-center">
+                        <small class="text-white-50">Proyecto académico - 2026</small>
+                    </div>
+
+                </div>
+
+            </footer>
+
+        </main>
+
+    </div>
+
+
+    <!-- =========================================================
+         BOOTSTRAP JS
+    ========================================================== -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JavaScript propio (dividido en módulos para facilitar su mantenimiento) -->
+    <script src="assets/js/data.js"></script>
+    <script src="assets/js/utils.js"></script>
+    <script src="assets/js/evaluacion.js"></script>
+    <script src="assets/js/resultados.js"></script>
+    <script src="assets/js/ui.js"></script>
+
+</body>
+
+</html>

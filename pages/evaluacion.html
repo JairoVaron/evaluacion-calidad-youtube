@@ -1,0 +1,2134 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Evaluación de YouTube | ISO/IEC 25010</title>
+    <link rel="icon" type="image/webp" href="/assets/img/logo-icono.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- CSS propio -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body data-base="../">
+
+    <!-- =========================================================
+         BARRA SUPERIOR
+    ========================================================== -->
+    <nav class="yt-navbar">
+
+        <div class="yt-navbar-left">
+            <button class="yt-hamburger" type="button" data-sidebar-toggle aria-label="Abrir menú" aria-controls="ytSidebar">
+                <i class="bi bi-list"></i>
+            </button>
+
+            <a class="yt-brand" href="../index.html">
+                <span class="yt-play-icon"><i class="bi bi-play-fill"></i></span>
+                <span>
+                    YouTube Quality
+                    <span class="yt-brand-sub">Evaluación ISO/IEC 25010</span>
+                </span>
+            </a>
+        </div>
+
+        <div class="yt-navbar-center">
+            <form class="yt-search-form" id="ytSearchForm" role="search">
+                <input type="text" class="yt-search-input" id="ytSearchInput"
+                    placeholder="Buscar en el proyecto (modelo, evaluación, resultados...)" autocomplete="off">
+                <button type="submit" class="yt-search-btn" aria-label="Buscar">
+                    <i class="bi bi-search"></i>
+                </button>
+            </form>
+            <div class="yt-search-suggestions" id="ytSearchSuggestions"></div>
+        </div>
+
+        <div class="yt-navbar-right">
+            <button class="yt-icon-btn" type="button" aria-label="Aplicaciones">
+                <i class="bi bi-grid-3x3-gap"></i>
+            </button>
+            <button class="yt-icon-btn" type="button" aria-label="Notificaciones">
+                <i class="bi bi-bell"></i>
+            </button>
+            <div class="yt-avatar" title="Proyecto académico">YQ</div>
+        </div>
+
+    </nav>
+
+
+    <!-- =========================================================
+         LAYOUT: SIDEBAR + CONTENIDO
+    ========================================================== -->
+    <div class="yt-layout">
+
+        <aside class="yt-sidebar" id="ytSidebar">
+
+            <div class="yt-sidebar-group">
+                <a href="../index.html" class="yt-sidebar-item">
+                    <i class="bi bi-house-fill"></i> Inicio
+                </a>
+            </div>
+
+            <div class="yt-sidebar-group">
+                <div class="yt-sidebar-label">Proyecto</div>
+
+                <a href="modelo.html" class="yt-sidebar-item">
+                    <i class="bi bi-diagram-3"></i> Modelo de calidad
+                </a>
+                <a href="evaluacion.html" class="yt-sidebar-item is-active">
+                    <i class="bi bi-clipboard-check"></i> Evaluación
+                </a>
+                <a href="resultados.html" class="yt-sidebar-item">
+                    <i class="bi bi-bar-chart-fill"></i> Resultados
+                </a>
+                <a href="conclusiones.html" class="yt-sidebar-item">
+                    <i class="bi bi-award"></i> Conclusiones
+                </a>
+            </div>
+
+            <div class="yt-sidebar-group">
+                <div class="yt-sidebar-note">
+                    <i class="bi bi-mortarboard-fill text-danger"></i>
+                    Proyecto académico de Ingeniería de Software.
+                    Modelo ISO/IEC 25010 aplicado a YouTube.
+                </div>
+            </div>
+
+        </aside>
+
+        <div class="yt-sidebar-backdrop" id="ytSidebarBackdrop"></div>
+
+
+        <main class="yt-main">
+
+    <!-- =========================================================
+         BARRA DE PROGRESO DEL CUESTIONARIO
+         (visual únicamente — no participa en el cálculo)
+    ========================================================== -->
+    <div class="yt-progress-wrapper">
+        <div class="container">
+            <div class="yt-progress-track">
+                <div class="yt-progress-fill" id="progresoFill"></div>
+            </div>
+            <div class="yt-progress-label" id="progresoLabel">
+                0 de 24 preguntas respondidas
+            </div>
+        </div>
+    </div>
+
+
+    <!-- =========================================================
+         ENCABEZADO
+    ========================================================== -->
+    <header class="py-5 bg-light">
+
+        <div class="container">
+
+            <div class="row justify-content-center text-center">
+
+                <div class="col-lg-9">
+
+                    <span class="section-tag">
+                        <i class="bi bi-clipboard-check-fill"></i>
+                        Cuestionario de evaluación
+                    </span>
+
+                    <h1 class="mt-3">
+                        Evaluación de YouTube
+                    </h1>
+
+                    <p class="lead text-muted mt-3">
+                        Aplicación del modelo de calidad
+                        <strong>ISO/IEC 25010</strong>
+                    </p>
+
+                    <p class="text-muted">
+                        Responde cada pregunta utilizando una escala de
+                        1 a 5 según tu percepción de la plataforma.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================================================
+         INFORMACIÓN DEL CUESTIONARIO
+    ========================================================== -->
+    <section class="py-4">
+
+        <div class="container">
+
+            <div class="alert alert-light border shadow-sm">
+
+                <div class="row align-items-center">
+
+                    <div class="col-md-8">
+
+                        <h5 class="fw-bold">
+                            <i class="bi bi-info-circle text-danger"></i>
+                            Instrucciones
+                        </h5>
+
+                        <p class="mb-0 text-muted">
+                            Lee cada pregunta y selecciona una opción
+                            del 1 al 5. Debes responder todas las preguntas
+                            para poder obtener el resultado de la evaluación.
+                        </p>
+
+                    </div>
+
+                    <div class="col-md-4 mt-3 mt-md-0">
+
+                        <div class="text-md-end scale-legend">
+
+                            <span class="badge bg-danger">
+                                1 = Muy malo
+                            </span>
+
+                            <span class="badge bg-secondary">
+                                2 = Malo
+                            </span>
+
+                            <span class="badge bg-secondary">
+                                3 = Regular
+                            </span>
+
+                            <span class="badge bg-secondary">
+                                4 = Bueno
+                            </span>
+
+                            <span class="badge bg-success">
+                                5 = Excelente
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         FORMULARIO DE EVALUACIÓN
+    ========================================================== -->
+    <div class="pb-5">
+
+        <div class="container">
+
+            <form id="formEvaluacion">
+
+
+                <!-- =================================================
+                     1. ADECUACIÓN FUNCIONAL
+                ================================================== -->
+                <section class="evaluation-section mb-5">
+
+                    <div class="card border-0 shadow-sm">
+
+                        <div class="card-header bg-danger text-white p-4">
+
+                            <div class="d-flex align-items-center">
+
+                                <i class="bi bi-check-circle fs-2 me-3"></i>
+
+                                <div>
+                                    <h2 class="h4 fw-bold mb-1">
+                                        1. Adecuación funcional
+                                    </h2>
+
+                                    <p class="mb-0">
+                                        Evalúa si las funciones de YouTube
+                                        cumplen con las necesidades de los usuarios.
+                                    </p>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="card-body p-4">
+
+
+                            <!-- Pregunta 1 -->
+                            <div class="question-box mb-4">
+
+                                <p class="fw-semibold">
+                                    1. ¿YouTube permite buscar videos de manera
+                                    fácil y efectiva?
+                                </p>
+
+                                <div class="rating-options">
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="funcionalidad_1"
+                                            value="1"
+                                            required
+                                            id="funcionalidad_1_1">
+                                        <label class="form-check-label" for="funcionalidad_1_1">1</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="funcionalidad_1"
+                                            value="2"
+                                            id="funcionalidad_1_2">
+                                        <label class="form-check-label" for="funcionalidad_1_2">2</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="funcionalidad_1"
+                                            value="3"
+                                            id="funcionalidad_1_3">
+                                        <label class="form-check-label" for="funcionalidad_1_3">3</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="funcionalidad_1"
+                                            value="4"
+                                            id="funcionalidad_1_4">
+                                        <label class="form-check-label" for="funcionalidad_1_4">4</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="funcionalidad_1"
+                                            value="5"
+                                            id="funcionalidad_1_5">
+                                        <label class="form-check-label" for="funcionalidad_1_5">5</label>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- Pregunta 2 -->
+                            <div class="question-box mb-4">
+
+                                <p class="fw-semibold">
+                                    2. ¿La reproducción de videos funciona
+                                    correctamente?
+                                </p>
+
+                                <div class="rating-options">
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="funcionalidad_2"
+                                            value="1"
+                                            required
+                                            id="funcionalidad_2_1">
+                                        <label class="form-check-label" for="funcionalidad_2_1">1</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="funcionalidad_2"
+                                            value="2"
+                                            id="funcionalidad_2_2">
+                                        <label class="form-check-label" for="funcionalidad_2_2">2</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="funcionalidad_2"
+                                            value="3"
+                                            id="funcionalidad_2_3">
+                                        <label class="form-check-label" for="funcionalidad_2_3">3</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="funcionalidad_2"
+                                            value="4"
+                                            id="funcionalidad_2_4">
+                                        <label class="form-check-label" for="funcionalidad_2_4">4</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="funcionalidad_2"
+                                            value="5"
+                                            id="funcionalidad_2_5">
+                                        <label class="form-check-label" for="funcionalidad_2_5">5</label>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- Pregunta 3 -->
+                            <div class="question-box">
+
+                                <p class="fw-semibold">
+                                    3. ¿Las funciones principales de YouTube
+                                    cumplen con su propósito?
+                                </p>
+
+                                <div class="rating-options">
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="funcionalidad_3"
+                                            value="1"
+                                            required
+                                            id="funcionalidad_3_1">
+                                        <label class="form-check-label" for="funcionalidad_3_1">1</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="funcionalidad_3"
+                                            value="2"
+                                            id="funcionalidad_3_2">
+                                        <label class="form-check-label" for="funcionalidad_3_2">2</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="funcionalidad_3"
+                                            value="3"
+                                            id="funcionalidad_3_3">
+                                        <label class="form-check-label" for="funcionalidad_3_3">3</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="funcionalidad_3"
+                                            value="4"
+                                            id="funcionalidad_3_4">
+                                        <label class="form-check-label" for="funcionalidad_3_4">4</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="funcionalidad_3"
+                                            value="5"
+                                            id="funcionalidad_3_5">
+                                        <label class="form-check-label" for="funcionalidad_3_5">5</label>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================================
+                     2. EFICIENCIA DE RENDIMIENTO
+                ================================================== -->
+                <section class="evaluation-section mb-5">
+
+                    <div class="card border-0 shadow-sm">
+
+                        <div class="card-header bg-danger text-white p-4">
+
+                            <div class="d-flex align-items-center">
+
+                                <i class="bi bi-speedometer2 fs-2 me-3"></i>
+
+                                <div>
+                                    <h2 class="h4 fw-bold mb-1">
+                                        2. Eficiencia de rendimiento
+                                    </h2>
+
+                                    <p class="mb-0">
+                                        Evalúa el rendimiento y la respuesta
+                                        de la plataforma.
+                                    </p>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="card-body p-4">
+
+
+                            <!-- Pregunta 4 -->
+                            <div class="question-box mb-4">
+
+                                <p class="fw-semibold">
+                                    4. ¿YouTube carga rápidamente sus páginas
+                                    y contenidos?
+                                </p>
+
+                                <div class="rating-options">
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="rendimiento_1"
+                                            value="1"
+                                            required
+                                            id="rendimiento_1_1">
+                                        <label class="form-check-label" for="rendimiento_1_1">1</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="rendimiento_1"
+                                            value="2"
+                                            id="rendimiento_1_2">
+                                        <label class="form-check-label" for="rendimiento_1_2">2</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="rendimiento_1"
+                                            value="3"
+                                            id="rendimiento_1_3">
+                                        <label class="form-check-label" for="rendimiento_1_3">3</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="rendimiento_1"
+                                            value="4"
+                                            id="rendimiento_1_4">
+                                        <label class="form-check-label" for="rendimiento_1_4">4</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="rendimiento_1"
+                                            value="5"
+                                            id="rendimiento_1_5">
+                                        <label class="form-check-label" for="rendimiento_1_5">5</label>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- Pregunta 5 -->
+                            <div class="question-box mb-4">
+
+                                <p class="fw-semibold">
+                                    5. ¿Los videos se reproducen de manera
+                                    fluida cuando la conexión es adecuada?
+                                </p>
+
+                                <div class="rating-options">
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="rendimiento_2"
+                                            value="1"
+                                            required
+                                            id="rendimiento_2_1">
+                                        <label class="form-check-label" for="rendimiento_2_1">1</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="rendimiento_2"
+                                            value="2"
+                                            id="rendimiento_2_2">
+                                        <label class="form-check-label" for="rendimiento_2_2">2</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="rendimiento_2"
+                                            value="3"
+                                            id="rendimiento_2_3">
+                                        <label class="form-check-label" for="rendimiento_2_3">3</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="rendimiento_2"
+                                            value="4"
+                                            id="rendimiento_2_4">
+                                        <label class="form-check-label" for="rendimiento_2_4">4</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="rendimiento_2"
+                                            value="5"
+                                            id="rendimiento_2_5">
+                                        <label class="form-check-label" for="rendimiento_2_5">5</label>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- Pregunta 6 -->
+                            <div class="question-box">
+
+                                <p class="fw-semibold">
+                                    6. ¿La plataforma responde correctamente
+                                    al realizar diferentes acciones?
+                                </p>
+
+                                <div class="rating-options">
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="rendimiento_3"
+                                            value="1"
+                                            required
+                                            id="rendimiento_3_1">
+                                        <label class="form-check-label" for="rendimiento_3_1">1</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="rendimiento_3"
+                                            value="2"
+                                            id="rendimiento_3_2">
+                                        <label class="form-check-label" for="rendimiento_3_2">2</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="rendimiento_3"
+                                            value="3"
+                                            id="rendimiento_3_3">
+                                        <label class="form-check-label" for="rendimiento_3_3">3</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="rendimiento_3"
+                                            value="4"
+                                            id="rendimiento_3_4">
+                                        <label class="form-check-label" for="rendimiento_3_4">4</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="rendimiento_3"
+                                            value="5"
+                                            id="rendimiento_3_5">
+                                        <label class="form-check-label" for="rendimiento_3_5">5</label>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================================
+                     3. COMPATIBILIDAD
+                ================================================== -->
+                <section class="evaluation-section mb-5">
+
+                    <div class="card border-0 shadow-sm">
+
+                        <div class="card-header bg-danger text-white p-4">
+
+                            <div class="d-flex align-items-center">
+
+                                <i class="bi bi-layers fs-2 me-3"></i>
+
+                                <div>
+                                    <h2 class="h4 fw-bold mb-1">
+                                        3. Compatibilidad
+                                    </h2>
+
+                                    <p class="mb-0">
+                                        Evalúa el funcionamiento de YouTube
+                                        en diferentes entornos.
+                                    </p>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="card-body p-4">
+
+
+                            <!-- Pregunta 7 -->
+                            <div class="question-box mb-4">
+
+                                <p class="fw-semibold">
+                                    7. ¿YouTube funciona correctamente en
+                                    diferentes navegadores web?
+                                </p>
+
+                                <div class="rating-options">
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="compatibilidad_1"
+                                            value="1"
+                                            required
+                                            id="compatibilidad_1_1">
+                                        <label class="form-check-label" for="compatibilidad_1_1">1</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="compatibilidad_1"
+                                            value="2"
+                                            id="compatibilidad_1_2">
+                                        <label class="form-check-label" for="compatibilidad_1_2">2</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="compatibilidad_1"
+                                            value="3"
+                                            id="compatibilidad_1_3">
+                                        <label class="form-check-label" for="compatibilidad_1_3">3</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="compatibilidad_1"
+                                            value="4"
+                                            id="compatibilidad_1_4">
+                                        <label class="form-check-label" for="compatibilidad_1_4">4</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="compatibilidad_1"
+                                            value="5"
+                                            id="compatibilidad_1_5">
+                                        <label class="form-check-label" for="compatibilidad_1_5">5</label>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- Pregunta 8 -->
+                            <div class="question-box mb-4">
+
+                                <p class="fw-semibold">
+                                    8. ¿YouTube funciona correctamente en
+                                    computadores y dispositivos móviles?
+                                </p>
+
+                                <div class="rating-options">
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="compatibilidad_2"
+                                            value="1"
+                                            required
+                                            id="compatibilidad_2_1">
+                                        <label class="form-check-label" for="compatibilidad_2_1">1</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="compatibilidad_2"
+                                            value="2"
+                                            id="compatibilidad_2_2">
+                                        <label class="form-check-label" for="compatibilidad_2_2">2</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="compatibilidad_2"
+                                            value="3"
+                                            id="compatibilidad_2_3">
+                                        <label class="form-check-label" for="compatibilidad_2_3">3</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="compatibilidad_2"
+                                            value="4"
+                                            id="compatibilidad_2_4">
+                                        <label class="form-check-label" for="compatibilidad_2_4">4</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="compatibilidad_2"
+                                            value="5"
+                                            id="compatibilidad_2_5">
+                                        <label class="form-check-label" for="compatibilidad_2_5">5</label>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- Pregunta 9 -->
+                            <div class="question-box">
+
+                                <p class="fw-semibold">
+                                    9. ¿YouTube mantiene sus funciones
+                                    principales en diferentes dispositivos?
+                                </p>
+
+                                <div class="rating-options">
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="compatibilidad_3"
+                                            value="1"
+                                            required
+                                            id="compatibilidad_3_1">
+                                        <label class="form-check-label" for="compatibilidad_3_1">1</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="compatibilidad_3"
+                                            value="2"
+                                            id="compatibilidad_3_2">
+                                        <label class="form-check-label" for="compatibilidad_3_2">2</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="compatibilidad_3"
+                                            value="3"
+                                            id="compatibilidad_3_3">
+                                        <label class="form-check-label" for="compatibilidad_3_3">3</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="compatibilidad_3"
+                                            value="4"
+                                            id="compatibilidad_3_4">
+                                        <label class="form-check-label" for="compatibilidad_3_4">4</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="compatibilidad_3"
+                                            value="5"
+                                            id="compatibilidad_3_5">
+                                        <label class="form-check-label" for="compatibilidad_3_5">5</label>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================================
+                     4. USABILIDAD
+                ================================================== -->
+                <section class="evaluation-section mb-5">
+
+                    <div class="card border-0 shadow-sm">
+
+                        <div class="card-header bg-danger text-white p-4">
+
+                            <div class="d-flex align-items-center">
+
+                                <i class="bi bi-person-check fs-2 me-3"></i>
+
+                                <div>
+                                    <h2 class="h4 fw-bold mb-1">
+                                        4. Usabilidad
+                                    </h2>
+
+                                    <p class="mb-0">
+                                        Evalúa la facilidad de uso y aprendizaje
+                                        de la plataforma.
+                                    </p>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="card-body p-4">
+
+
+                            <!-- Pregunta 10 -->
+                            <div class="question-box mb-4">
+
+                                <p class="fw-semibold">
+                                    10. ¿La interfaz de YouTube es fácil
+                                    de entender?
+                                </p>
+
+                                <div class="rating-options">
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="usabilidad_1"
+                                            value="1"
+                                            required
+                                            id="usabilidad_1_1">
+                                        <label class="form-check-label" for="usabilidad_1_1">1</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="usabilidad_1"
+                                            value="2"
+                                            id="usabilidad_1_2">
+                                        <label class="form-check-label" for="usabilidad_1_2">2</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="usabilidad_1"
+                                            value="3"
+                                            id="usabilidad_1_3">
+                                        <label class="form-check-label" for="usabilidad_1_3">3</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="usabilidad_1"
+                                            value="4"
+                                            id="usabilidad_1_4">
+                                        <label class="form-check-label" for="usabilidad_1_4">4</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="usabilidad_1"
+                                            value="5"
+                                            id="usabilidad_1_5">
+                                        <label class="form-check-label" for="usabilidad_1_5">5</label>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- Pregunta 11 -->
+                            <div class="question-box mb-4">
+
+                                <p class="fw-semibold">
+                                    11. ¿Es fácil encontrar las funciones
+                                    principales de YouTube?
+                                </p>
+
+                                <div class="rating-options">
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="usabilidad_2"
+                                            value="1"
+                                            required
+                                            id="usabilidad_2_1">
+                                        <label class="form-check-label" for="usabilidad_2_1">1</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="usabilidad_2"
+                                            value="2"
+                                            id="usabilidad_2_2">
+                                        <label class="form-check-label" for="usabilidad_2_2">2</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="usabilidad_2"
+                                            value="3"
+                                            id="usabilidad_2_3">
+                                        <label class="form-check-label" for="usabilidad_2_3">3</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="usabilidad_2"
+                                            value="4"
+                                            id="usabilidad_2_4">
+                                        <label class="form-check-label" for="usabilidad_2_4">4</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="usabilidad_2"
+                                            value="5"
+                                            id="usabilidad_2_5">
+                                        <label class="form-check-label" for="usabilidad_2_5">5</label>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- Pregunta 12 -->
+                            <div class="question-box">
+
+                                <p class="fw-semibold">
+                                    12. ¿Un usuario nuevo puede aprender
+                                    a utilizar YouTube fácilmente?
+                                </p>
+
+                                <div class="rating-options">
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="usabilidad_3"
+                                            value="1"
+                                            required
+                                            id="usabilidad_3_1">
+                                        <label class="form-check-label" for="usabilidad_3_1">1</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="usabilidad_3"
+                                            value="2"
+                                            id="usabilidad_3_2">
+                                        <label class="form-check-label" for="usabilidad_3_2">2</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="usabilidad_3"
+                                            value="3"
+                                            id="usabilidad_3_3">
+                                        <label class="form-check-label" for="usabilidad_3_3">3</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="usabilidad_3"
+                                            value="4"
+                                            id="usabilidad_3_4">
+                                        <label class="form-check-label" for="usabilidad_3_4">4</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="usabilidad_3"
+                                            value="5"
+                                            id="usabilidad_3_5">
+                                        <label class="form-check-label" for="usabilidad_3_5">5</label>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================================
+                     5. FIABILIDAD
+                ================================================== -->
+                <section class="evaluation-section mb-5">
+
+                    <div class="card border-0 shadow-sm">
+
+                        <div class="card-header bg-danger text-white p-4">
+
+                            <div class="d-flex align-items-center">
+
+                                <i class="bi bi-shield-check fs-2 me-3"></i>
+
+                                <div>
+                                    <h2 class="h4 fw-bold mb-1">
+                                        5. Fiabilidad
+                                    </h2>
+
+                                    <p class="mb-0">
+                                        Evalúa la estabilidad y funcionamiento
+                                        de la plataforma.
+                                    </p>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="card-body p-4">
+
+
+                            <!-- Pregunta 13 -->
+                            <div class="question-box mb-4">
+
+                                <p class="fw-semibold">
+                                    13. ¿YouTube funciona de manera estable
+                                    durante su uso?
+                                </p>
+
+                                <div class="rating-options">
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="fiabilidad_1"
+                                            value="1"
+                                            required
+                                            id="fiabilidad_1_1">
+                                        <label class="form-check-label" for="fiabilidad_1_1">1</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="fiabilidad_1"
+                                            value="2"
+                                            id="fiabilidad_1_2">
+                                        <label class="form-check-label" for="fiabilidad_1_2">2</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="fiabilidad_1"
+                                            value="3"
+                                            id="fiabilidad_1_3">
+                                        <label class="form-check-label" for="fiabilidad_1_3">3</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="fiabilidad_1"
+                                            value="4"
+                                            id="fiabilidad_1_4">
+                                        <label class="form-check-label" for="fiabilidad_1_4">4</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="fiabilidad_1"
+                                            value="5"
+                                            id="fiabilidad_1_5">
+                                        <label class="form-check-label" for="fiabilidad_1_5">5</label>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- Pregunta 14 -->
+                            <div class="question-box mb-4">
+
+                                <p class="fw-semibold">
+                                    14. ¿La plataforma permite continuar
+                                    utilizando sus funciones después de
+                                    errores menores?
+                                </p>
+
+                                <div class="rating-options">
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="fiabilidad_2"
+                                            value="1"
+                                            required
+                                            id="fiabilidad_2_1">
+                                        <label class="form-check-label" for="fiabilidad_2_1">1</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="fiabilidad_2"
+                                            value="2"
+                                            id="fiabilidad_2_2">
+                                        <label class="form-check-label" for="fiabilidad_2_2">2</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="fiabilidad_2"
+                                            value="3"
+                                            id="fiabilidad_2_3">
+                                        <label class="form-check-label" for="fiabilidad_2_3">3</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="fiabilidad_2"
+                                            value="4"
+                                            id="fiabilidad_2_4">
+                                        <label class="form-check-label" for="fiabilidad_2_4">4</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="fiabilidad_2"
+                                            value="5"
+                                            id="fiabilidad_2_5">
+                                        <label class="form-check-label" for="fiabilidad_2_5">5</label>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- Pregunta 15 -->
+                            <div class="question-box">
+
+                                <p class="fw-semibold">
+                                    15. ¿YouTube está disponible cuando
+                                    el usuario necesita utilizarlo?
+                                </p>
+
+                                <div class="rating-options">
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="fiabilidad_3"
+                                            value="1"
+                                            required
+                                            id="fiabilidad_3_1">
+                                        <label class="form-check-label" for="fiabilidad_3_1">1</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="fiabilidad_3"
+                                            value="2"
+                                            id="fiabilidad_3_2">
+                                        <label class="form-check-label" for="fiabilidad_3_2">2</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="fiabilidad_3"
+                                            value="3"
+                                            id="fiabilidad_3_3">
+                                        <label class="form-check-label" for="fiabilidad_3_3">3</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="fiabilidad_3"
+                                            value="4"
+                                            id="fiabilidad_3_4">
+                                        <label class="form-check-label" for="fiabilidad_3_4">4</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="fiabilidad_3"
+                                            value="5"
+                                            id="fiabilidad_3_5">
+                                        <label class="form-check-label" for="fiabilidad_3_5">5</label>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================================
+                     6. SEGURIDAD
+                ================================================== -->
+                <section class="evaluation-section mb-5">
+
+                    <div class="card border-0 shadow-sm">
+
+                        <div class="card-header bg-danger text-white p-4">
+
+                            <div class="d-flex align-items-center">
+
+                                <i class="bi bi-lock fs-2 me-3"></i>
+
+                                <div>
+                                    <h2 class="h4 fw-bold mb-1">
+                                        6. Seguridad
+                                    </h2>
+
+                                    <p class="mb-0">
+                                        Evalúa la protección de las cuentas
+                                        y la información de los usuarios.
+                                    </p>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="card-body p-4">
+
+
+                            <!-- Pregunta 16 -->
+                            <div class="question-box mb-4">
+
+                                <p class="fw-semibold">
+                                    16. ¿YouTube cuenta con mecanismos para
+                                    proteger las cuentas de los usuarios?
+                                </p>
+
+                                <div class="rating-options">
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="seguridad_1"
+                                            value="1"
+                                            required
+                                            id="seguridad_1_1">
+                                        <label class="form-check-label" for="seguridad_1_1">1</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="seguridad_1"
+                                            value="2"
+                                            id="seguridad_1_2">
+                                        <label class="form-check-label" for="seguridad_1_2">2</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="seguridad_1"
+                                            value="3"
+                                            id="seguridad_1_3">
+                                        <label class="form-check-label" for="seguridad_1_3">3</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="seguridad_1"
+                                            value="4"
+                                            id="seguridad_1_4">
+                                        <label class="form-check-label" for="seguridad_1_4">4</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="seguridad_1"
+                                            value="5"
+                                            id="seguridad_1_5">
+                                        <label class="form-check-label" for="seguridad_1_5">5</label>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- Pregunta 17 -->
+                            <div class="question-box mb-4">
+
+                                <p class="fw-semibold">
+                                    17. ¿Los usuarios pueden controlar
+                                    adecuadamente la privacidad de su cuenta?
+                                </p>
+
+                                <div class="rating-options">
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="seguridad_2"
+                                            value="1"
+                                            required
+                                            id="seguridad_2_1">
+                                        <label class="form-check-label" for="seguridad_2_1">1</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="seguridad_2"
+                                            value="2"
+                                            id="seguridad_2_2">
+                                        <label class="form-check-label" for="seguridad_2_2">2</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="seguridad_2"
+                                            value="3"
+                                            id="seguridad_2_3">
+                                        <label class="form-check-label" for="seguridad_2_3">3</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="seguridad_2"
+                                            value="4"
+                                            id="seguridad_2_4">
+                                        <label class="form-check-label" for="seguridad_2_4">4</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="seguridad_2"
+                                            value="5"
+                                            id="seguridad_2_5">
+                                        <label class="form-check-label" for="seguridad_2_5">5</label>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- Pregunta 18 -->
+                            <div class="question-box">
+
+                                <p class="fw-semibold">
+                                    18. ¿El acceso a la cuenta está protegido
+                                    mediante mecanismos de autenticación?
+                                </p>
+
+                                <div class="rating-options">
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="seguridad_3"
+                                            value="1"
+                                            required
+                                            id="seguridad_3_1">
+                                        <label class="form-check-label" for="seguridad_3_1">1</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="seguridad_3"
+                                            value="2"
+                                            id="seguridad_3_2">
+                                        <label class="form-check-label" for="seguridad_3_2">2</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="seguridad_3"
+                                            value="3"
+                                            id="seguridad_3_3">
+                                        <label class="form-check-label" for="seguridad_3_3">3</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="seguridad_3"
+                                            value="4"
+                                            id="seguridad_3_4">
+                                        <label class="form-check-label" for="seguridad_3_4">4</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="seguridad_3"
+                                            value="5"
+                                            id="seguridad_3_5">
+                                        <label class="form-check-label" for="seguridad_3_5">5</label>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================================
+                     7. MANTENIBILIDAD
+                ================================================== -->
+                <section class="evaluation-section mb-5">
+
+                    <div class="card border-0 shadow-sm">
+
+                        <div class="card-header bg-danger text-white p-4">
+
+                            <div class="d-flex align-items-center">
+
+                                <i class="bi bi-tools fs-2 me-3"></i>
+
+                                <div>
+                                    <h2 class="h4 fw-bold mb-1">
+                                        7. Mantenibilidad
+                                    </h2>
+
+                                    <p class="mb-0">
+                                        Evalúa la capacidad de mantener,
+                                        corregir y mejorar el software.
+                                    </p>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="card-body p-4">
+
+
+                            <!-- Pregunta 19 -->
+                            <div class="question-box mb-4">
+
+                                <p class="fw-semibold">
+                                    19. ¿YouTube recibe actualizaciones y
+                                    mejoras de manera frecuente?
+                                </p>
+
+                                <div class="rating-options">
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="mantenibilidad_1"
+                                            value="1"
+                                            required
+                                            id="mantenibilidad_1_1">
+                                        <label class="form-check-label" for="mantenibilidad_1_1">1</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="mantenibilidad_1"
+                                            value="2"
+                                            id="mantenibilidad_1_2">
+                                        <label class="form-check-label" for="mantenibilidad_1_2">2</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="mantenibilidad_1"
+                                            value="3"
+                                            id="mantenibilidad_1_3">
+                                        <label class="form-check-label" for="mantenibilidad_1_3">3</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="mantenibilidad_1"
+                                            value="4"
+                                            id="mantenibilidad_1_4">
+                                        <label class="form-check-label" for="mantenibilidad_1_4">4</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="mantenibilidad_1"
+                                            value="5"
+                                            id="mantenibilidad_1_5">
+                                        <label class="form-check-label" for="mantenibilidad_1_5">5</label>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- Pregunta 20 -->
+                            <div class="question-box mb-4">
+
+                                <p class="fw-semibold">
+                                    20. ¿Las actualizaciones de YouTube
+                                    permiten mejorar su funcionamiento?
+                                </p>
+
+                                <div class="rating-options">
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="mantenibilidad_2"
+                                            value="1"
+                                            required
+                                            id="mantenibilidad_2_1">
+                                        <label class="form-check-label" for="mantenibilidad_2_1">1</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="mantenibilidad_2"
+                                            value="2"
+                                            id="mantenibilidad_2_2">
+                                        <label class="form-check-label" for="mantenibilidad_2_2">2</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="mantenibilidad_2"
+                                            value="3"
+                                            id="mantenibilidad_2_3">
+                                        <label class="form-check-label" for="mantenibilidad_2_3">3</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="mantenibilidad_2"
+                                            value="4"
+                                            id="mantenibilidad_2_4">
+                                        <label class="form-check-label" for="mantenibilidad_2_4">4</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="mantenibilidad_2"
+                                            value="5"
+                                            id="mantenibilidad_2_5">
+                                        <label class="form-check-label" for="mantenibilidad_2_5">5</label>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- Pregunta 21 -->
+                            <div class="question-box">
+
+                                <p class="fw-semibold">
+                                    21. ¿Los problemas de funcionamiento
+                                    suelen ser corregidos mediante
+                                    actualizaciones o cambios en la plataforma?
+                                </p>
+
+                                <div class="rating-options">
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="mantenibilidad_3"
+                                            value="1"
+                                            required
+                                            id="mantenibilidad_3_1">
+                                        <label class="form-check-label" for="mantenibilidad_3_1">1</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="mantenibilidad_3"
+                                            value="2"
+                                            id="mantenibilidad_3_2">
+                                        <label class="form-check-label" for="mantenibilidad_3_2">2</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="mantenibilidad_3"
+                                            value="3"
+                                            id="mantenibilidad_3_3">
+                                        <label class="form-check-label" for="mantenibilidad_3_3">3</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="mantenibilidad_3"
+                                            value="4"
+                                            id="mantenibilidad_3_4">
+                                        <label class="form-check-label" for="mantenibilidad_3_4">4</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="mantenibilidad_3"
+                                            value="5"
+                                            id="mantenibilidad_3_5">
+                                        <label class="form-check-label" for="mantenibilidad_3_5">5</label>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================================
+                     8. PORTABILIDAD
+                ================================================== -->
+                <section class="evaluation-section mb-5">
+
+                    <div class="card border-0 shadow-sm">
+
+                        <div class="card-header bg-danger text-white p-4">
+
+                            <div class="d-flex align-items-center">
+
+                                <i class="bi bi-phone fs-2 me-3"></i>
+
+                                <div>
+                                    <h2 class="h4 fw-bold mb-1">
+                                        8. Portabilidad
+                                    </h2>
+
+                                    <p class="mb-0">
+                                        Evalúa el funcionamiento de YouTube
+                                        en diferentes dispositivos y entornos.
+                                    </p>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="card-body p-4">
+
+
+                            <!-- Pregunta 22 -->
+                            <div class="question-box mb-4">
+
+                                <p class="fw-semibold">
+                                    22. ¿YouTube puede utilizarse correctamente
+                                    en diferentes dispositivos?
+                                </p>
+
+                                <div class="rating-options">
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="portabilidad_1"
+                                            value="1"
+                                            required
+                                            id="portabilidad_1_1">
+                                        <label class="form-check-label" for="portabilidad_1_1">1</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="portabilidad_1"
+                                            value="2"
+                                            id="portabilidad_1_2">
+                                        <label class="form-check-label" for="portabilidad_1_2">2</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="portabilidad_1"
+                                            value="3"
+                                            id="portabilidad_1_3">
+                                        <label class="form-check-label" for="portabilidad_1_3">3</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="portabilidad_1"
+                                            value="4"
+                                            id="portabilidad_1_4">
+                                        <label class="form-check-label" for="portabilidad_1_4">4</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="portabilidad_1"
+                                            value="5"
+                                            id="portabilidad_1_5">
+                                        <label class="form-check-label" for="portabilidad_1_5">5</label>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- Pregunta 23 -->
+                            <div class="question-box mb-4">
+
+                                <p class="fw-semibold">
+                                    23. ¿La aplicación de YouTube funciona
+                                    correctamente en diferentes sistemas operativos?
+                                </p>
+
+                                <div class="rating-options">
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="portabilidad_2"
+                                            value="1"
+                                            required
+                                            id="portabilidad_2_1">
+                                        <label class="form-check-label" for="portabilidad_2_1">1</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="portabilidad_2"
+                                            value="2"
+                                            id="portabilidad_2_2">
+                                        <label class="form-check-label" for="portabilidad_2_2">2</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="portabilidad_2"
+                                            value="3"
+                                            id="portabilidad_2_3">
+                                        <label class="form-check-label" for="portabilidad_2_3">3</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="portabilidad_2"
+                                            value="4"
+                                            id="portabilidad_2_4">
+                                        <label class="form-check-label" for="portabilidad_2_4">4</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="portabilidad_2"
+                                            value="5"
+                                            id="portabilidad_2_5">
+                                        <label class="form-check-label" for="portabilidad_2_5">5</label>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- Pregunta 24 -->
+                            <div class="question-box">
+
+                                <p class="fw-semibold">
+                                    24. ¿Es posible utilizar YouTube sin
+                                    perder sus funciones principales al
+                                    cambiar de dispositivo?
+                                </p>
+
+                                <div class="rating-options">
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="portabilidad_3"
+                                            value="1"
+                                            required
+                                            id="portabilidad_3_1">
+                                        <label class="form-check-label" for="portabilidad_3_1">1</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="portabilidad_3"
+                                            value="2"
+                                            id="portabilidad_3_2">
+                                        <label class="form-check-label" for="portabilidad_3_2">2</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="portabilidad_3"
+                                            value="3"
+                                            id="portabilidad_3_3">
+                                        <label class="form-check-label" for="portabilidad_3_3">3</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="portabilidad_3"
+                                            value="4"
+                                            id="portabilidad_3_4">
+                                        <label class="form-check-label" for="portabilidad_3_4">4</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio"
+                                            name="portabilidad_3"
+                                            value="5"
+                                            id="portabilidad_3_5">
+                                        <label class="form-check-label" for="portabilidad_3_5">5</label>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================================
+                     FINAL DEL CUESTIONARIO
+                ================================================== -->
+                <section class="text-center py-4">
+
+                    <div class="card border-0 shadow-sm">
+
+                        <div class="card-body p-4 p-md-5">
+
+                            <i class="bi bi-bar-chart-line text-danger display-5"></i>
+
+                            <h2 class="fw-bold mt-3">
+                                Finalizar evaluación
+                            </h2>
+
+                            <p class="text-muted">
+                                Verifica que hayas respondido todas las
+                                preguntas antes de calcular los resultados.
+                            </p>
+
+                            <button type="submit"
+                                class="btn btn-danger btn-lg px-5">
+
+                                <i class="bi bi-calculator"></i>
+
+                                Calcular resultados
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
+    <footer class="bg-dark text-white py-4">
+
+        <div class="container">
+
+            <div class="row align-items-center">
+
+                <div class="col-md-6 text-center text-md-start">
+
+                    <h5 class="fw-bold mb-1">
+
+                        <i class="bi bi-youtube text-danger"></i>
+
+                        YouTube Quality
+
+                    </h5>
+
+                    <small class="text-white-50">
+                        Evaluación de calidad de software
+                    </small>
+
+                </div>
+
+
+                <div class="col-md-6 text-center text-md-end mt-3 mt-md-0">
+
+                    <small class="text-white-50">
+                        Ingeniería de Software
+                    </small>
+
+                    <br>
+
+                    <small class="text-white-50">
+                        Modelo ISO/IEC 25010
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <hr class="border-secondary my-3">
+
+
+            <div class="text-center">
+
+                <small class="text-white-50">
+                    Proyecto académico - 2026
+                </small>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+        </main>
+
+    </div>
+
+
+    <!-- =========================================================
+         BOOTSTRAP JS
+    ========================================================== -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JavaScript propio -->
+    <script src="../assets/js/data.js"></script>
+    <script src="../assets/js/utils.js"></script>
+    <script src="../assets/js/evaluacion.js"></script>
+    <script src="../assets/js/resultados.js"></script>
+    <script src="../assets/js/ui.js"></script>
+
+</body>
+
+</html>
