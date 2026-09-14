@@ -119,12 +119,7 @@ if (formulario) {
 
         guardarResultados(resultados);
 
-        alert(
-            "Evaluación completada correctamente."
-        );
-
         window.location.href = "resultados.html";
 
     });
-
 }
